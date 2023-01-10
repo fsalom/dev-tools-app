@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */; };
+		C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D29296DF1000044C922 /* NetworkClientJSON.swift */; };
+		C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserViewModel.swift; sourceTree = "<group>"; };
+		C1688D29296DF1000044C922 /* NetworkClientJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientJSON.swift; sourceTree = "<group>"; };
+		C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceCodePro.ttf; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1688D28296DF0D80044C922 /* NetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				C1688D29296DF1000044C922 /* NetworkClientJSON.swift */,
+			);
+			path = NetworkClient;
+			sourceTree = "<group>";
+		};
+		C1688D2B296DFA400044C922 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1688D2C296DFA4B0044C922 /* font */,
+				C1BF02F8296C258B008FE367 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C1688D2C296DFA4B0044C922 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +141,7 @@
 				C1BF0325296C2BE4008FE367 /* UI */,
 				C1BF0323296C2A65008FE367 /* Data */,
 				C1BF0329296C2C69008FE367 /* Domain */,
-				C1BF02F8296C258B008FE367 /* Assets.xcassets */,
+				C1688D2B296DFA400044C922 /* Resources */,
 				C1BF02FA296C258B008FE367 /* Preview Content */,
 			);
 			path = utils;
@@ -144,6 +175,7 @@
 		C1BF0323296C2A65008FE367 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C1688D28296DF0D80044C922 /* NetworkClient */,
 				C1BF0324296C2A6C008FE367 /* CoreData */,
 			);
 			path = Data;
@@ -197,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				C1BF0330296C566E008FE367 /* JsonParserView.swift */,
+				C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */,
 			);
 			path = JsonParser;
 			sourceTree = "<group>";
@@ -305,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */,
 				C1BF02FC296C258B008FE367 /* Preview Assets.xcassets in Resources */,
 				C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */,
 			);
@@ -332,9 +366,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BF032C296C2C80008FE367 /* Menu.swift in Sources */,
+				C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
+				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,

@@ -10,6 +10,8 @@ import Foundation
 final class MenuViewModel: ObservableObject {
     @Published public var menuOptions = [Menu]()
 
+    var url: String = ""
+
     init() {
 
     }
