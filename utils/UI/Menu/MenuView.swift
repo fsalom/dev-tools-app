@@ -8,7 +8,8 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MenuView: View {
+    @StateObject private var viewModel = MenuViewModel()
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -18,16 +19,14 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+            List(viewModel.menuOptions) { option in
+                NavigationLink(destination: JsonParserView()) {
+                    MenuListRowView(option: option)
                 }
-                .onDelete(perform: deleteItems)
             }
+            .onAppear(perform: {
+                viewModel.load()
+            }).navigationViewStyle(.stack)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -81,8 +80,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        MenuView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

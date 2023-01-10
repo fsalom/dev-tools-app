@@ -1,0 +1,20 @@
+//
+//  MenuViewModel.swift
+//  utils
+//
+//  Created by Fernando Salom Carratala on 9/1/23.
+//
+
+import Foundation
+
+final class MenuViewModel: ObservableObject {
+    @Published public var menuOptions = [Menu]()
+
+    init() {
+
+    }
+
+    func load() {
+        menuOptions = [Menu(name: "JSON Parser")]
+    }
+}
