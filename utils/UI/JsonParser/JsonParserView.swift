@@ -16,17 +16,22 @@ struct JsonParserView: View {
         VStack(alignment: .leading) {
             Section(header: Text("Introduce la ruta")) {
                 HStack {
-                    ProgressView()
+                    if viewModel.isLoading {
+                        ProgressView()
+                    }
                     TextField("añadir url", text: $url).padding(20)
                         .foregroundColor(.accentColor)
                         .cornerRadius(10)
                         .onSubmit {
+                            viewModel.text = ""
                             viewModel.getJSON(for: url)
                         }
                 }
             }
             ZStack {
-                TextEditor(text: $viewModel.text).font(.custom("SourceCodePro", size: 16.0))
+                TextEditor(text: $viewModel.text)
+                    .font(.custom("SourceCodePro", size: 16.0))
+                    .border(.black, width: 1.0)
             }
         }.frame(minWidth: 0,
                 maxWidth: .infinity,

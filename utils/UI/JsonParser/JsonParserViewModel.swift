@@ -7,21 +7,28 @@
 
 import Foundation
 
-final class JsonParserViewModel: ObservableObject {
-    var networkClient: NetworkClientJSONProtocol
-    var text: String = ""
 
-    init() {
-        networkClient = NetworkClientJSON()
-    }
+extension JsonParserView {
+    @MainActor class JsonParserViewModel: ObservableObject {
+        @Published var isLoading: Bool = false
+        @Published var text: String = ""
+        var networkClient: NetworkClientJSONProtocol
 
-    func getJSON(for url: String) {
-        guard let url = URL(string: url) else {
-            return
+        init() {
+            networkClient = NetworkClientJSON()
         }
-        Task {
-            let json = try? await networkClient.getJSON(for: url)
-            self.text = json ?? "---"
+
+        func getJSON(for url: String) {
+            guard let url = URL(string: url) else {
+                return
+            }
+            Task {
+                self.isLoading = true
+                let json = try? await networkClient.getJSON(for: url)
+                self.text = json ?? "---"
+                self.isLoading = false
+            }
         }
+
     }
 }
