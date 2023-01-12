@@ -25,8 +25,16 @@ extension JsonParserView {
             Task {
                 self.isLoading = true
                 let json = try? await networkClient.getJSON(for: url)
+                customize(this: json ?? "")
                 self.text = json ?? "---"
                 self.isLoading = false
+            }
+        }
+
+        func customize(this json: String) {
+            let jsonArray = json.split(separator: "\n")
+            for line in jsonArray {
+                print(line)
             }
         }
 

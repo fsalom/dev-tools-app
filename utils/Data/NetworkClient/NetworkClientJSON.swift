@@ -14,7 +14,6 @@ protocol NetworkClientJSONProtocol {
 final class NetworkClientJSON: NetworkClientJSONProtocol {
     func getJSON(for url: URL) async throws -> String {
         let request = URLRequest(url: url)
-        print(request)
         let (data, _) = try await URLSession.shared.data(for: request)
         return data.prettyPrintedJSONString ?? "---"
     }
