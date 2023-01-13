@@ -8,14 +8,14 @@
 import Foundation
 
 protocol NetworkClientJSONProtocol {
-    func getJSON(for url: URL) async throws -> String
+    func getJSONStringAndData(for url: URL) async throws -> (String, Data)
 }
 
 final class NetworkClientJSON: NetworkClientJSONProtocol {
-    func getJSON(for url: URL) async throws -> String {
+    func getJSONStringAndData(for url: URL) async throws -> (String, Data) {
         let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
-        return data.prettyPrintedJSONString ?? "---"
+        return (data.prettyPrintedJSONString ?? "---", data)
     }
 }
 
