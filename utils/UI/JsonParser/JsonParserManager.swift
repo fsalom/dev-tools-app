@@ -18,7 +18,7 @@ class JSONManager {
         case string
         case float
         case array
-        case json
+        case dict
         case unknown
     }
 
@@ -38,11 +38,12 @@ class JSONManager {
 
     func parseJson(from json: Any, current: Element) {
         if let dict = json as? [String: Any]{
+            current.type = .dict
             for (key, value) in dict {
                 let element = Element()
                 element.name = key
                 if let dict = value as? [String: Any]{
-                    element.type = .json
+                    element.type = .dict
                     current.content.append(element)
                     parseJson(from: dict, current: element)
                 } else if value is Array<Any> {
@@ -81,7 +82,7 @@ class JSONManager {
             return .float
         }
         if element is [String: Any] {
-            return .json
+            return .dict
         }
         return .unknown
     }
