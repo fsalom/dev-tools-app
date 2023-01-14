@@ -12,6 +12,7 @@ extension JsonParserView {
     @MainActor class JsonParserViewModel: ObservableObject {
         @Published var isLoading: Bool = false
         @Published var text: AttributedString = ""
+        @Published var element: Element?
         var networkClient: NetworkClientJSONProtocol
 
         init() {
@@ -23,12 +24,13 @@ extension JsonParserView {
             Task {
                 self.isLoading = true
                 let (json, data) = try await networkClient.getJSONStringAndData(for: url)
-                self.text = customize(this: json)
+                //self.text = customize(this: json)
                 do {
                     let resultJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
                     let manager = JSONManager()
                     manager.parseJson(from: resultJson as Any)
                     print(manager.root)
+                    self.element = manager.root
                 } catch {
                     print("Error -> \(error)")
                 }
