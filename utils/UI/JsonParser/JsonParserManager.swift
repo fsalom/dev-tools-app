@@ -58,9 +58,9 @@ class JSONManager {
         }
         if let array = json as? Array<Any> {
             current.content = []
-            for item in array {
+            for (index, item) in array.enumerated() {
                 let child = Element()
-                child.name = current.name + "_child"
+                child.name = "[\(index)]"
                 child.type = getType(of: item)
                 current.content?.append(child)
                 parseJson(from: item, current: child)

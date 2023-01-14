@@ -33,34 +33,12 @@ struct JsonParserView: View {
                         List(content, children: \.content) { row in
                             HStack {
                                 Text(row.name)
-                            }
-                        }
-                    }
-                    /*
-                    if root.type == .dict {
-                        ScrollView {
-                            VStack(alignment: .leading) {
-                                ForEach(root.content) { item in
-                                    HStack {
-                                        Text(item.name)
-                                        if let value = item.value {
-                                            Text("\(value)")
-                                        }
-                                        if item.content.count > 0 {
-                                            ForEach(item.content) { node in
-                                                //self.addNewElement(for: node)
-                                            }
-                                        }
-                                    }
+                                if let value = row.value {
+                                    Text("\(value)")
                                 }
                             }
                         }
-                    }*/
-                }
-            }
-            ScrollView {
-                VStack {
-                    Text(viewModel.text)
+                    }
                 }
             }
         }.frame(minWidth: 0,
