@@ -33,11 +33,6 @@ struct JsonParserView: View {
                   Text(viewModel.text)
                 }
             }
-            /*ZStack {
-                TextEditor(text: $viewModel.text)
-                    .font(.custom("SourceCodePro", size: 16.0))
-                    .border(.black, width: 1.0)
-            }*/
         }.frame(minWidth: 0,
                 maxWidth: .infinity,
                 minHeight: 0,
@@ -50,25 +45,5 @@ struct JsonParserView: View {
 struct JsonParserView_Previews: PreviewProvider {
     static var previews: some View {
         JsonParserView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
-
-struct TextViewWrapper: UIViewRepresentable {
-    var attributedText: NSAttributedString
-
-    func makeUIView(context: Context) -> UITextView {
-        let uiView = UITextView()
-
-        uiView.backgroundColor = .clear
-        uiView.textContainerInset = .zero
-        uiView.isEditable = false
-        uiView.isScrollEnabled = false
-        uiView.textContainer.lineFragmentPadding = 0
-
-        return uiView
-    }
-
-    func updateUIView(_ uiView: UITextView, context: Context) {
-        uiView.attributedText = attributedText
     }
 }

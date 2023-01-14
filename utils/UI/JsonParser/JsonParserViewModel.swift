@@ -23,12 +23,12 @@ extension JsonParserView {
             Task {
                 self.isLoading = true
                 let (json, data) = try await networkClient.getJSONStringAndData(for: url)
-                self.text = customize(this: json ?? "")
+                self.text = customize(this: json)
                 do {
                     let resultJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
-                    if let dictionary = resultJson as? [String: AnyObject] {
-                        await getKeysAndValues(of: dictionary)
-                    }
+                    let manager = JSONManager()
+                    manager.parseJson(from: resultJson as Any)
+                    print(manager.root)
                 } catch {
                     print("Error -> \(error)")
                 }
