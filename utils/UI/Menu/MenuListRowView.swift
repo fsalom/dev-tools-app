@@ -12,13 +12,12 @@ struct MenuListRowView: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            //VStack(alignment: .leading) {
+                Image(systemName: "doc.text.fill")
                 Text(option.name)
-                    .font(.title3)
-                    .foregroundColor(.accentColor)
-                    .redacted(reason: option.name.isEmpty ? .placeholder : [])
-            }
-        }
+                    .fontWeight(.heavy)
+            //}
+        }.padding(10)
     }
 }
 

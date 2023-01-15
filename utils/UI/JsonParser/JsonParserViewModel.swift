@@ -23,7 +23,7 @@ extension JsonParserView {
             guard let url = URL(string: url) else { return }
             Task {
                 self.isLoading = true
-                let (json, data) = try await networkClient.getJSONStringAndData(for: url)
+                let (_, data) = try await networkClient.getJSONStringAndData(for: url)
                 //self.text = customize(this: json)
                 do {
                     let resultJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
@@ -37,16 +37,6 @@ extension JsonParserView {
                 self.isLoading = false
             }
         }
-
-        func getKeysAndValues(of json: [String:AnyObject]) async {
-            for (key, value) in json {
-                if value is NSNumber || value is String || value is Bool {
-                    print(key)
-                    print(value)
-                }
-            }
-        }
-
 
         func customize(this json: String) -> AttributedString {
             let jsonArray = json.split(separator: "\n")

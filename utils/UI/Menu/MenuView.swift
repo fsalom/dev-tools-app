@@ -27,16 +27,6 @@ struct MenuView: View {
             .onAppear(perform: {
                 viewModel.load()
             }).navigationViewStyle(.stack)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
             Text("Select an item")
         }
     }
