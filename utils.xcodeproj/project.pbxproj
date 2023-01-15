@@ -10,6 +10,7 @@
 		C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */; };
 		C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D29296DF1000044C922 /* NetworkClientJSON.swift */; };
 		C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */; };
+		C16E18002973F3B400BD519D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17FF2973F3B400BD519D /* Button.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserViewModel.swift; sourceTree = "<group>"; };
 		C1688D29296DF1000044C922 /* NetworkClientJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientJSON.swift; sourceTree = "<group>"; };
 		C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceCodePro.ttf; sourceTree = "<group>"; };
+		C16E17FF2973F3B400BD519D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,14 @@
 				C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		C16E17FE2973F32600BD519D /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17FF2973F3B400BD519D /* Button.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		C1BF02E8296C2589008FE367 = {
@@ -195,6 +205,7 @@
 		C1BF0325296C2BE4008FE367 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C16E17FE2973F32600BD519D /* Style */,
 				C1BF032F296C5654008FE367 /* JsonParser */,
 				C1BF0326296C2BF0008FE367 /* Menu */,
 			);
@@ -375,6 +386,7 @@
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
 				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,
+				C16E18002973F3B400BD519D /* Button.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
 				C1BF0301296C258B008FE367 /* utils.xcdatamodeld in Sources */,

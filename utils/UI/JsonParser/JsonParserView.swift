@@ -31,14 +31,20 @@ struct JsonParserView: View {
                     .foregroundColor(Color.white)
                     .padding(15)
                     .background(Color("textfield"))
-                    .cornerRadius(10)
                     .overlay(RoundedRectangle(cornerRadius: 14)
                         .stroke(url.isEmpty ? Color.black : Color.green, lineWidth: 2))
                     .onSubmit {
                         viewModel.text = ""
                         viewModel.getJSON(for: url)
                     }
+                Button(action: {
+                    viewModel.text = ""
+                    viewModel.getJSON(for: url)
+                }, label: {
+                  Text("Obtener JSON")
+                }).buttonStyle(GrowingButton())
             }.padding(.bottom, 50)
+
             if let element = viewModel.element {
                 if let content = element.content {
                     /*
@@ -77,12 +83,20 @@ struct JsonParserView: View {
                     }.listStyle(.plain)
                 }
             }
+            HStack {
+                Button(action: {
+                  //This part of the button is basically what the button does, it's "action"
+                }, label: {
+                  Text("Descargar")
+                }).buttonStyle(GrowingButton())
+            }
         }.frame(minWidth: 0,
                 maxWidth: .infinity,
                 minHeight: 0,
                 maxHeight: .infinity,
                 alignment: .topLeading)
         .padding(30)
+
     }
 
     /*
