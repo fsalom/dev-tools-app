@@ -22,7 +22,6 @@ struct MenuView: View {
             .onAppear(perform: {
                 viewModel.load()
             }).navigationViewStyle(.stack)
-            Text("Select an item")
         }
     }
 }

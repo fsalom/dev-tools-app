@@ -11,7 +11,12 @@ struct JsonParserView: View {
     @StateObject private var viewModel = JsonParserViewModel()
     @State private var url: String = ""
     @State private var checked: Bool = true
+    @FocusState private var focusedField: Field?
     @Environment(\.managedObjectContext) private var viewContext
+
+    private enum Field: Int, CaseIterable {
+            case url
+        }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,49 +33,26 @@ struct JsonParserView: View {
                         .frame(width: 40.0, height: 40.0)
                 }
                 TextField("añadir url", text: $url)
-                    .foregroundColor(Color.white)
                     .padding(15)
-                    .background(Color("textfield"))
                     .overlay(RoundedRectangle(cornerRadius: 14)
-                        .stroke(url.isEmpty ? Color.black : Color.green, lineWidth: 2))
+                        .stroke(url.isEmpty ? Color.black : Color.green, lineWidth: 2)
+                        )
                     .onSubmit {
                         viewModel.text = ""
                         viewModel.getJSON(for: url)
-                    }
+                        focusedField = nil
+                    }.focused($focusedField, equals: .url)
                 Button(action: {
                     viewModel.text = ""
                     viewModel.getJSON(for: url)
+                    focusedField = nil
                 }, label: {
-                  Text("Obtener JSON")
+                  Text("Obtener")
                 }).buttonStyle(GrowingButton())
             }.padding(.bottom, 50)
 
             if let element = viewModel.element {
                 if let content = element.content {
-                    /*
-                     List {
-                     ForEach(content) { item in
-                     Section(header:
-                     HStack {
-                     Text(item.name)
-                     .fontWeight(.heavy)
-                     if let value = item.value {
-                     Text("\(value)")
-                     }
-                     }
-                     ) {
-                     OutlineGroup(item.content ?? [Element](), children: \.content) {  item in
-                     HStack {
-                     Text(item.name)
-                     .bold()
-                     if let value = item.value {
-                     Text("\(value)")
-                     }
-                     }
-                     }
-                     }
-                     }
-                     }*/
                     List(content, children: \.content) { row in
                         HStack {
                             let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"
@@ -85,7 +67,7 @@ struct JsonParserView: View {
             }
             HStack {
                 Button(action: {
-                  //This part of the button is basically what the button does, it's "action"
+                  //Create files
                 }, label: {
                   Text("Descargar")
                 }).buttonStyle(GrowingButton())
@@ -96,36 +78,8 @@ struct JsonParserView: View {
                 maxHeight: .infinity,
                 alignment: .topLeading)
         .padding(30)
-
+        .navigationTitle("Parseador de JSON")
     }
-
-    /*
-     func addNewElement(for node: Element) -> some View {
-     Group {
-     VStack(alignment: .leading) {
-     Text(node.name)
-     if let child = node.child {
-     Text(child.name)
-     //addNewElement(for: child)
-     }
-     if let content = node.content {
-     if content.count > 0 {
-     ForEach(content) { property in
-     HStack {
-     Text(property.name)
-     if let value = property.value {
-     Text("\(value)")
-     }
-     }
-     }
-     }
-     //ForEach(node.content) { property in}
-     //addNewElement(for: child)
-     }
-     }
-     }
-     }
-     */
 }
 
 struct JsonParserView_Previews: PreviewProvider {
