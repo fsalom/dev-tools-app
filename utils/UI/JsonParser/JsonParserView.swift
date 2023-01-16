@@ -27,7 +27,7 @@ struct JsonParserView: View {
             VStack(alignment: .leading) {
                 Text("Introduce la ruta")
                     .fontWeight(.bold)
-                    .font(.title2)
+                    .font(.title2).padding(30)
                 HStack {
                     if viewModel.isLoading {
                         ProgressView()
@@ -54,7 +54,7 @@ struct JsonParserView: View {
                     }, label: {
                         Text("Obtener")
                     }).buttonStyle(GrowingButton())
-                }.padding(.bottom, 50)
+                }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
 
                 if let element = viewModel.element {
                     if let content = element.content {
@@ -75,10 +75,10 @@ struct JsonParserView: View {
                                             Image(systemName: "doc.on.doc.fill")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
-                                                .frame(width: 25.0, height: 25.0)
+                                                .frame(width: 20, height: 20.0)
                                                 .onTapGesture {
                                                     self.presentingModal = true
-                                                    UIPasteboard.general.string = urlString 
+                                                    UIPasteboard.general.string = urlString
                                                 }
                                         } else {
                                             Text("\(value)").foregroundColor(.orange)
@@ -90,20 +90,12 @@ struct JsonParserView: View {
                             }
                         }.listStyle(.plain)
                     }
-                }
-                HStack {
-                    Button(action: {
-                        //Create files
-                    }, label: {
-                        Text("Descargar")
-                    }).buttonStyle(GrowingButton())
-                }
+                }                
             }.frame(minWidth: 0,
                     maxWidth: .infinity,
                     minHeight: 0,
                     maxHeight: .infinity,
                     alignment: .topLeading)
-            .padding(30)
             .navigationTitle("Parseador de JSON")
             if presentingModal {
                 FloatingNotice(showingNotice: $presentingModal)
