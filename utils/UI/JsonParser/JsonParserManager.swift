@@ -62,6 +62,9 @@ class JSONManager {
                 let child = Element()
                 child.name = "[\(index)]"
                 child.type = getType(of: item)
+                if child.type != .array && child.type != .dict {
+                    child.value = item  as? NSObject
+                }
                 current.content?.append(child)
                 parseJson(from: item, current: child)
             }

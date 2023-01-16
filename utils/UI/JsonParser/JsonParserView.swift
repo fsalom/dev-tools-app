@@ -55,7 +55,7 @@ struct JsonParserView: View {
                 if let content = element.content {
                     List(content, children: \.content) { row in
                         HStack {
-                            let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"
+                            let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"    
                             Text(row.name + " \(type)").fontWeight(.heavy)
                             Spacer()
                             if let value = row.value {
