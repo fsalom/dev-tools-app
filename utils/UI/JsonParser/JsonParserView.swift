@@ -11,74 +11,104 @@ struct JsonParserView: View {
     @StateObject private var viewModel = JsonParserViewModel()
     @State private var url: String = ""
     @State private var checked: Bool = true
+    @State private var showWebView = false
+    @State var presentingModal = false
+    @State private var width: CGFloat = 0
     @FocusState private var focusedField: Field?
+    @Environment(\.openURL) private  var openURL
     @Environment(\.managedObjectContext) private var viewContext
 
     private enum Field: Int, CaseIterable {
-            case url
-        }
+        case url
+    }
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Introduce la ruta")
-                .fontWeight(.bold)
-                .font(.title2)
-            HStack {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .frame(width: 40.0, height: 40.0)
-                }else{
-                    Image(systemName: "magnifyingglass.circle.fill")
-                        .resizable()
-                        .frame(width: 40.0, height: 40.0)
-                }
-                TextField("añadir url", text: $url)
-                    .padding(15)
-                    .overlay(RoundedRectangle(cornerRadius: 14)
-                        .stroke(url.isEmpty ? Color.black : Color.green, lineWidth: 2)
+        ZStack {
+            VStack(alignment: .leading) {
+                Text("Introduce la ruta")
+                    .fontWeight(.bold)
+                    .font(.title2)
+                HStack {
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .frame(width: 40.0, height: 40.0)
+                    }else{
+                        Image(systemName: "magnifyingglass.circle.fill")
+                            .resizable()
+                            .frame(width: 40.0, height: 40.0)
+                    }
+                    TextField("añadir url", text: $url)
+                        .padding(15)
+                        .overlay(RoundedRectangle(cornerRadius: 14)
+                            .stroke(url.isEmpty ? Color.black : Color.green, lineWidth: 2)
                         )
-                    .onSubmit {
+                        .onSubmit {
+                            viewModel.text = ""
+                            viewModel.getJSON(for: url)
+                            focusedField = nil
+                        }.focused($focusedField, equals: .url)
+                    Button(action: {
                         viewModel.text = ""
                         viewModel.getJSON(for: url)
                         focusedField = nil
-                    }.focused($focusedField, equals: .url)
-                Button(action: {
-                    viewModel.text = ""
-                    viewModel.getJSON(for: url)
-                    focusedField = nil
-                }, label: {
-                  Text("Obtener")
-                }).buttonStyle(GrowingButton())
-            }.padding(.bottom, 50)
+                    }, label: {
+                        Text("Obtener")
+                    }).buttonStyle(GrowingButton())
+                }.padding(.bottom, 50)
 
-            if let element = viewModel.element {
-                if let content = element.content {
-                    List(content, children: \.content) { row in
-                        HStack {
-                            let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"    
-                            Text(row.name + " \(type)").fontWeight(.heavy)
-                            Spacer()
-                            if let value = row.value {
-                                Text("\(value)").foregroundColor(.orange)
+                if let element = viewModel.element {
+                    if let content = element.content {
+                        List(content, children: \.content) { row in
+                            HStack {
+                                let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"
+                                Text(row.name + " \(type)").fontWeight(.heavy)
+                                Spacer()
+                                if let value = row.value {
+                                    if row.type == .string {
+                                        if let urlString = value as? String, urlString.canOpenUrl() {
+                                            Link(urlString, destination: URL(string: urlString)!)
+                                                .onTapGesture {
+                                                    openURL(URL(string: urlString)!)
+                                                }
+                                                .foregroundColor(.blue)
+
+                                            Image(systemName: "doc.on.doc.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 25.0, height: 25.0)
+                                                .onTapGesture {
+                                                    self.presentingModal = true
+                                                    UIPasteboard.general.string = urlString 
+                                                }
+                                        } else {
+                                            Text("\(value)").foregroundColor(.orange)
+                                        }
+                                    } else {
+                                        Text("\(value)").foregroundColor(.orange)
+                                    }
+                                }
                             }
-                        }
-                    }.listStyle(.plain)
+                        }.listStyle(.plain)
+                    }
                 }
+                HStack {
+                    Button(action: {
+                        //Create files
+                    }, label: {
+                        Text("Descargar")
+                    }).buttonStyle(GrowingButton())
+                }
+            }.frame(minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    maxHeight: .infinity,
+                    alignment: .topLeading)
+            .padding(30)
+            .navigationTitle("Parseador de JSON")
+            if presentingModal {
+                FloatingNotice(showingNotice: $presentingModal)
             }
-            HStack {
-                Button(action: {
-                  //Create files
-                }, label: {
-                  Text("Descargar")
-                }).buttonStyle(GrowingButton())
-            }
-        }.frame(minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading)
-        .padding(30)
-        .navigationTitle("Parseador de JSON")
+        }
     }
 }
 
