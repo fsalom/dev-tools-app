@@ -15,6 +15,7 @@
 		C16E180F29754FC300BD519D /* WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E180E29754FC300BD519D /* WKWebView.swift */; };
 		C16E18122975510500BD519D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18112975510500BD519D /* String.swift */; };
 		C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18142975643000BD519D /* FloatingNoticeView.swift */; };
+		C16E181929769D0E00BD519D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E181829769D0E00BD519D /* Header.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		C16E180E29754FC300BD519D /* WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
 		C16E18112975510500BD519D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C16E18142975643000BD519D /* FloatingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingNoticeView.swift; sourceTree = "<group>"; };
+		C16E181829769D0E00BD519D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 			path = FloatingNotice;
 			sourceTree = "<group>";
 		};
+		C16E18162975F14500BD519D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C16E18132975642300BD519D /* FloatingNotice */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +199,7 @@
 		C1BF02F3296C2589008FE367 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18162975F14500BD519D /* Components */,
 				C16E1810297550F500BD519D /* Helper */,
 				C1BF02F4296C2589008FE367 /* utilsApp.swift */,
 				C1BF0325296C2BE4008FE367 /* UI */,
@@ -246,7 +257,6 @@
 		C1BF0325296C2BE4008FE367 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C16E18132975642300BD519D /* FloatingNotice */,
 				C16E180D29754FAF00BD519D /* WebView */,
 				C16E180A2973FE1C00BD519D /* Helper */,
 				C16E17FE2973F32600BD519D /* Style */,
@@ -278,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				C1BF032B296C2C80008FE367 /* Menu.swift */,
+				C16E181829769D0E00BD519D /* Header.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -431,6 +442,7 @@
 				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,
 				C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */,
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,
+				C16E181929769D0E00BD519D /* Header.swift in Sources */,
 				C16E180F29754FC300BD519D /* WKWebView.swift in Sources */,
 				C16E18002973F3B400BD519D /* Button.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,

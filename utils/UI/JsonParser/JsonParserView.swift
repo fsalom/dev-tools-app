@@ -10,8 +10,7 @@ import SwiftUI
 struct JsonParserView: View {
     @StateObject private var viewModel = JsonParserViewModel()
     @State private var url: String = ""
-    @State private var checked: Bool = true
-    @State private var showWebView = false
+    @State private var headers = [Header]()
     @State var presentingModal = false
     @State private var width: CGFloat = 0
     @FocusState private var focusedField: Field?
@@ -25,9 +24,44 @@ struct JsonParserView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                Text("Introduce la ruta")
-                    .fontWeight(.bold)
-                    .font(.title2).padding(30)
+                VStack{
+                    if self.headers.count == 0 {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            Button {
+                                self.headers.append(Header(key: "", value: ""))
+                            } label: {
+                                Text("Añadir headers")
+                            }.buttonStyle(GrowingButton())
+                        }
+                    }else{
+                        ForEach(self.$headers){ $header in
+                            VStack(alignment: .leading){
+                                HStack{
+                                    TextField("Clave", text: $header.key)
+                                        .padding(10)
+                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
+                                    TextField("Valor", text: $header.value)
+                                        .padding(10)
+                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
+
+                                    Button {
+                                        self.headers.removeAll { header in
+                                            header.id == $header.id
+                                        }
+                                    } label: {
+                                        Image(systemName: "minus.circle.fill")
+                                            .resizable()
+                                            .frame(width: 40.0, height: 40.0)
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                 HStack {
                     if viewModel.isLoading {
                         ProgressView()
@@ -40,7 +74,7 @@ struct JsonParserView: View {
                     TextField("añadir url", text: $url)
                         .padding(15)
                         .overlay(RoundedRectangle(cornerRadius: 14)
-                            .stroke(url.isEmpty ? Color.black : Color.green, lineWidth: 2)
+                            .stroke(url.isEmpty ? Color.gray : Color.green, lineWidth: 2)
                         )
                         .onSubmit {
                             viewModel.text = ""
@@ -71,7 +105,6 @@ struct JsonParserView: View {
                                                     openURL(URL(string: urlString)!)
                                                 }
                                                 .foregroundColor(.blue)
-
                                             Image(systemName: "doc.on.doc.fill")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
@@ -90,7 +123,7 @@ struct JsonParserView: View {
                             }
                         }.listStyle(.plain)
                     }
-                }                
+                }
             }.frame(minWidth: 0,
                     maxWidth: .infinity,
                     minHeight: 0,
