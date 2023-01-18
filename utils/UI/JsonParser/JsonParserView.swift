@@ -11,6 +11,7 @@ struct JsonParserView: View {
     @StateObject private var viewModel = JsonParserViewModel()
     @State private var url: String = ""
     @State private var headers = [Header]()
+    @State private var methods = ["GET", "POST", "PATCH"]
     @State var presentingModal = false
     @State private var width: CGFloat = 0
     @FocusState private var focusedField: Field?
@@ -40,11 +41,17 @@ struct JsonParserView: View {
                         ForEach(self.$headers){ $header in
                             VStack(alignment: .leading){
                                 HStack{
-                                    TextField("Clave", text: $header.key)
-                                        .padding(10)
-                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
+                                    TextField("Clave", text: $header.key) { isEditing in
+                                        if isEditing {
+                                            headers.append(Header(key: "", value: ""))
+                                        }
+                                    }
+                                    .padding(15)
+                                    .font(.system(size: 16, weight: .bold))
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
                                     TextField("Valor", text: $header.value)
-                                        .padding(10)
+                                        .padding(15)
+                                        .font(.system(size: 16, weight: .bold))
                                         .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
 
                                     Button {
@@ -73,6 +80,7 @@ struct JsonParserView: View {
                     }
                     TextField("añadir url", text: $url)
                         .padding(15)
+                        .font(.system(size: 16, weight: .bold))
                         .overlay(RoundedRectangle(cornerRadius: 14)
                             .stroke(url.isEmpty ? Color.gray : Color.green, lineWidth: 2)
                         )
