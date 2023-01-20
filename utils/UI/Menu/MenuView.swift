@@ -15,8 +15,15 @@ struct MenuView: View {
     var body: some View {
         NavigationView {
             List(viewModel.menuOptions) { option in
-                NavigationLink(destination: JsonParserView()) {
-                    MenuListRowView(option: option)
+                if let destination = option.destination as? JsonParserView {
+                    NavigationLink(destination: destination) {
+                        MenuListRowView(option: option)
+                    }
+                }
+                if let destination = option.destination as? JsonEditorView {
+                    NavigationLink(destination: destination) {
+                        MenuListRowView(option: option)
+                    }
                 }
             }
             .onAppear(perform: {

@@ -24,7 +24,7 @@ struct MenuListRowView: View {
 struct MenuListRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            MenuListRowView(option: .init(name: "JSON"))
+            MenuListRowView(option: .init(name: "JSON", destination: JsonEditorView()))
         }
     }
 }

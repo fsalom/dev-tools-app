@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Menu: Identifiable {
     var id = UUID()
     var name: String
+    var destination: any View
 }
