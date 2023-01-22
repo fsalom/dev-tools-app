@@ -26,6 +26,35 @@ struct JsonParserView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
+                if errorMessage != "" {
+                    VStack {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("ERROR")
+                                    .bold()
+                                Text(errorMessage)
+                                    .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                            }
+                        }
+                        .foregroundColor(Color.white)
+                        .padding(12)
+                        .background(Color.red)
+                        .cornerRadius(8)
+                        .onTapGesture {
+                            withAnimation {
+                                self.errorMessage = ""
+                                viewModel.isLoading = false
+                            }
+                        }.onAppear(perform: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                withAnimation {
+                                    self.errorMessage = ""
+                                    viewModel.isLoading = false
+                                }
+                            }
+                        })
+                    }
+                }
                 VStack{
                     if self.headers.count == 0 {
                         HStack {
