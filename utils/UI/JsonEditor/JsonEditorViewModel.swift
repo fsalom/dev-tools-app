@@ -21,12 +21,16 @@ extension JsonEditorView {
         func parse(this JSON: String) {
             do {
                 let encoder = JSONEncoder()
-                if let jsonData = try? encoder.encode(JSON) {
-                    let resultJson = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String:AnyObject]
-                    let manager = JSONManager()
-                    manager.parseJson(from: resultJson as Any)
-                    print(manager.root)
-                    self.element = manager.root
+                if let data = JSON.data(using: .utf8) {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+                        let manager = JSONManager()
+                        manager.parseJson(from: json as Any)
+                        print(manager.root)
+                        self.element = manager.root
+                    } catch {
+                        print("Something went wrong")
+                    }
                 }
             } catch {
                 print("Error -> \(error)")
