@@ -10,8 +10,7 @@ import SwiftUI
 struct JsonEditorView: View {
     @StateObject private var viewModel = JsonEditorViewModel()
     @State private var text: String = ""
-    @State private var headers = [Header]()
-    @State private var methods = ["GET", "POST", "PATCH"]
+    @State private var errorMessage: String = ""
     @State var presentingModal = false
     @State private var width: CGFloat = 0
     @FocusState private var focusedField: Field?
@@ -25,12 +24,34 @@ struct JsonEditorView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
+                if errorMessage != "" {
+                    VStack {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("ERROR")
+                                    .bold()
+                                Text(errorMessage)
+                                    .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                            }
+                        }
+                        .foregroundColor(Color.white)
+                        .padding(12)
+                        .background(Color.red)
+                        .cornerRadius(8)
+                    }
+                }
                 HStack {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .frame(width: 40, height: 40)
                     Button {
-                        viewModel.parse(this: text)
+                        do {
+                            try viewModel.parse(this: text)
+                        } catch {
+                            if let message = error as? CommonError {
+                                errorMessage = message.localizedDescription
+                            }
+                        }
                     } label: {
                         Text("Enviar")
                     }.buttonStyle(GrowingButton())
@@ -39,9 +60,7 @@ struct JsonEditorView: View {
                     .padding(15)
                     .font(.system(size: 16, weight: .bold))
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
-                    .onSubmit {
-                        viewModel.parse(this: text)
-                    }
+
                 if let element = viewModel.element {
                     if let content = element.content {
                         List(content, children: \.content) { row in

@@ -10,6 +10,7 @@ import SwiftUI
 struct JsonParserView: View {
     @StateObject private var viewModel = JsonParserViewModel()
     @State private var url: String = ""
+    @State private var errorMessage: String = ""
     @State private var headers = [Header]()
     @State private var methods = ["GET", "POST", "PATCH"]
     @State var presentingModal = false
@@ -86,12 +87,24 @@ struct JsonParserView: View {
                         )
                         .onSubmit {
                             viewModel.text = ""
-                            viewModel.getJSON(for: url)
+                            do {
+                                try viewModel.getJSON(for: url)
+                            } catch {
+                                if let message = error as? CommonError {
+                                    errorMessage = message.localizedDescription
+                                }
+                            }
                             focusedField = nil
                         }.focused($focusedField, equals: .url)
                     Button(action: {
                         viewModel.text = ""
-                        viewModel.getJSON(for: url)
+                        do {
+                            try viewModel.getJSON(for: url)
+                        } catch {
+                            if let message = error as? CommonError {
+                                errorMessage = message.localizedDescription
+                            }
+                        }
                         focusedField = nil
                     }, label: {
                         Text("Obtener")

@@ -18,6 +18,7 @@
 		C16E181929769D0E00BD519D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E181829769D0E00BD519D /* Header.swift */; };
 		C16E18C7297AA4F700BD519D /* JsonEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18C6297AA4F700BD519D /* JsonEditorView.swift */; };
 		C16E18C9297AA53200BD519D /* JsonEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18C8297AA53200BD519D /* JsonEditorViewModel.swift */; };
+		C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18CB297DD34200BD519D /* CommonErrors.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		C16E181829769D0E00BD519D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		C16E18C6297AA4F700BD519D /* JsonEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonEditorView.swift; sourceTree = "<group>"; };
 		C16E18C8297AA53200BD519D /* JsonEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonEditorViewModel.swift; sourceTree = "<group>"; };
+		C16E18CB297DD34200BD519D /* CommonErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonErrors.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,14 @@
 			path = JsonEditor;
 			sourceTree = "<group>";
 		};
+		C16E18CA297DD32600BD519D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C16E18CB297DD34200BD519D /* CommonErrors.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 		C1BF0323296C2A65008FE367 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18CA297DD32600BD519D /* Error */,
 				C1688D28296DF0D80044C922 /* NetworkClient */,
 				C1BF0324296C2A6C008FE367 /* CoreData */,
 			);
@@ -451,6 +462,7 @@
 				C1BF032C296C2C80008FE367 /* Menu.swift in Sources */,
 				C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
+				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
 				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,

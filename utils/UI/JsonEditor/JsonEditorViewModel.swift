@@ -18,39 +18,19 @@ extension JsonEditorView {
             networkClient = NetworkClientJSON()
         }
 
-        func parse(this JSON: String) {
-            do {
-                let encoder = JSONEncoder()
-                if let data = JSON.data(using: .utf8) {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
-                        let manager = JSONManager()
-                        manager.parseJson(from: json as Any)
-                        print(manager.root)
-                        self.element = manager.root
-                    } catch {
-                        print("Something went wrong")
-                    }
+        func parse(this JSON: String) throws {
+            if let data = JSON.data(using: .utf8) {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data,
+                                                                options: .mutableContainers) as? [String:AnyObject]
+                    let manager = JSONManager()
+                    manager.parseJson(from: json as Any)
+                    self.element = manager.root
+                } catch {
+                    throw CommonError.parsingJSON
                 }
-            } catch {
-                print("Error -> \(error)")
             }
         }
-
-
-        func customize(this json: String) -> AttributedString {
-            let jsonArray = json.split(separator: "\n")
-            var myText: AttributedString = ""
-            for line in jsonArray {
-                var lineWithAttributed = AttributedString(stringLiteral: String(line))
-                var container = AttributeContainer()
-                container.foregroundColor = .red
-                lineWithAttributed.mergeAttributes(container)
-                myText.append(lineWithAttributed+"\n")
-            }
-            return myText
-        }
-
     }
 }
 

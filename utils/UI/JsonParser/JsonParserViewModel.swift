@@ -19,20 +19,22 @@ extension JsonParserView {
             networkClient = NetworkClientJSON()
         }
 
-        func getJSON(for url: String) {
-            guard let url = URL(string: url) else { return }
+        func getJSON(for url: String) throws {
+            guard let url = URL(string: url) else { throw CommonError.invalidURL }
             Task {
                 self.isLoading = true
-                let (_, data) = try await networkClient.getJSONStringAndData(for: url)
-                //self.text = customize(this: json)
                 do {
-                    let resultJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
-                    let manager = JSONManager()
-                    manager.parseJson(from: resultJson as Any)
-                    print(manager.root)
-                    self.element = manager.root
+                    let (_, data) = try await networkClient.getJSONStringAndData(for: url)
+                    do {
+                        let resultJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
+                        let manager = JSONManager()
+                        manager.parseJson(from: resultJson as Any)
+                        self.element = manager.root
+                    } catch {
+                        throw CommonError.parsingURL
+                    }
                 } catch {
-                    print("Error -> \(error)")
+                    throw CommonError.networkFailed
                 }
                 self.isLoading = false
             }
