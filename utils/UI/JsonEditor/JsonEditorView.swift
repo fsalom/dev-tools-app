@@ -38,6 +38,17 @@ struct JsonEditorView: View {
                         .padding(12)
                         .background(Color.red)
                         .cornerRadius(8)
+                        .onTapGesture {
+                            withAnimation {
+                                self.errorMessage = ""
+                            }
+                        }.onAppear(perform: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                withAnimation {
+                                    self.errorMessage = ""
+                                }
+                            }
+                        })
                     }
                 }
                 HStack {
