@@ -15,7 +15,6 @@ struct MenuListRowView: View {
             //VStack(alignment: .leading) {
                 Image(systemName: "doc.text.fill")
                 Text(option.name)
-                    .fontWeight(.heavy)
             //}
         }.padding(10)
     }
