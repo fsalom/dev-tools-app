@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 extension String {
     func canOpenUrl() -> Bool {        

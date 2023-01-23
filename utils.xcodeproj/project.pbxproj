@@ -12,13 +12,15 @@
 		C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */; };
 		C16E18002973F3B400BD519D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17FF2973F3B400BD519D /* Button.swift */; };
 		C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E180B2973FE4C00BD519D /* Navigation.swift */; };
-		C16E180F29754FC300BD519D /* WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E180E29754FC300BD519D /* WKWebView.swift */; };
 		C16E18122975510500BD519D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18112975510500BD519D /* String.swift */; };
 		C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18142975643000BD519D /* FloatingNoticeView.swift */; };
 		C16E181929769D0E00BD519D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E181829769D0E00BD519D /* Header.swift */; };
 		C16E18C7297AA4F700BD519D /* JsonEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18C6297AA4F700BD519D /* JsonEditorView.swift */; };
 		C16E18C9297AA53200BD519D /* JsonEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18C8297AA53200BD519D /* JsonEditorViewModel.swift */; };
 		C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18CB297DD34200BD519D /* CommonErrors.swift */; };
+		C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18D0297E9B3600BD519D /* ExecuteView.swift */; };
+		C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18D2297E9B4600BD519D /* ExecuteViewModel.swift */; };
+		C16E18D6297E9D7C00BD519D /* launch_ruby.sh in Resources */ = {isa = PBXBuildFile; fileRef = C16E18D5297E9D7C00BD519D /* launch_ruby.sh */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -58,13 +60,17 @@
 		C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceCodePro.ttf; sourceTree = "<group>"; };
 		C16E17FF2973F3B400BD519D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		C16E180B2973FE4C00BD519D /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
-		C16E180E29754FC300BD519D /* WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
 		C16E18112975510500BD519D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C16E18142975643000BD519D /* FloatingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingNoticeView.swift; sourceTree = "<group>"; };
 		C16E181829769D0E00BD519D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		C16E18C6297AA4F700BD519D /* JsonEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonEditorView.swift; sourceTree = "<group>"; };
 		C16E18C8297AA53200BD519D /* JsonEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonEditorViewModel.swift; sourceTree = "<group>"; };
 		C16E18CB297DD34200BD519D /* CommonErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonErrors.swift; sourceTree = "<group>"; };
+		C16E18CE297E988100BD519D /* addFile.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = addFile.rb; sourceTree = "<group>"; };
+		C16E18D0297E9B3600BD519D /* ExecuteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteView.swift; sourceTree = "<group>"; };
+		C16E18D2297E9B4600BD519D /* ExecuteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteViewModel.swift; sourceTree = "<group>"; };
+		C16E18D5297E9D7C00BD519D /* launch_ruby.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = launch_ruby.sh; sourceTree = "<group>"; };
+		C16E18D7297EA4D900BD519D /* utils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = utils.entitlements; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -150,14 +156,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		C16E180D29754FAF00BD519D /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				C16E180E29754FC300BD519D /* WKWebView.swift */,
-			);
-			path = WebView;
-			sourceTree = "<group>";
-		};
 		C16E1810297550F500BD519D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,9 +197,27 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		C16E18CF297E9B2100BD519D /* Execute */ = {
+			isa = PBXGroup;
+			children = (
+				C16E18D0297E9B3600BD519D /* ExecuteView.swift */,
+				C16E18D2297E9B4600BD519D /* ExecuteViewModel.swift */,
+			);
+			path = Execute;
+			sourceTree = "<group>";
+		};
+		C16E18D4297E9D5C00BD519D /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				C16E18D5297E9D7C00BD519D /* launch_ruby.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
+				C16E18CE297E988100BD519D /* addFile.rb */,
 				C1BF02F3296C2589008FE367 /* utils */,
 				C1BF0309296C258B008FE367 /* utilsTests */,
 				C1BF0313296C258B008FE367 /* utilsUITests */,
@@ -222,6 +238,8 @@
 		C1BF02F3296C2589008FE367 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18D7297EA4D900BD519D /* utils.entitlements */,
+				C16E18D4297E9D5C00BD519D /* Scripts */,
 				C16E18162975F14500BD519D /* Components */,
 				C16E1810297550F500BD519D /* Helper */,
 				C1BF02F4296C2589008FE367 /* utilsApp.swift */,
@@ -281,11 +299,11 @@
 		C1BF0325296C2BE4008FE367 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18CF297E9B2100BD519D /* Execute */,
 				C16E18C5297AA2EB00BD519D /* JsonEditor */,
-				C16E180D29754FAF00BD519D /* WebView */,
+				C1BF032F296C5654008FE367 /* JsonParser */,
 				C16E180A2973FE1C00BD519D /* Helper */,
 				C16E17FE2973F32600BD519D /* Style */,
-				C1BF032F296C5654008FE367 /* JsonParser */,
 				C1BF0326296C2BF0008FE367 /* Menu */,
 			);
 			path = UI;
@@ -435,6 +453,7 @@
 				C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */,
 				C1BF02FC296C258B008FE367 /* Preview Assets.xcassets in Resources */,
 				C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */,
+				C16E18D6297E9D7C00BD519D /* launch_ruby.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +480,9 @@
 			files = (
 				C1BF032C296C2C80008FE367 /* Menu.swift in Sources */,
 				C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */,
+				C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
+				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
 				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
@@ -470,7 +491,6 @@
 				C16E18C9297AA53200BD519D /* JsonEditorViewModel.swift in Sources */,
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,
 				C16E181929769D0E00BD519D /* Header.swift in Sources */,
-				C16E180F29754FC300BD519D /* WKWebView.swift in Sources */,
 				C16E18002973F3B400BD519D /* Button.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
 				C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */,
@@ -634,6 +654,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = utils/utils.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"utils/Preview Content\"";
@@ -650,9 +671,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.fernandosalom.utils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -664,6 +689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = utils/utils.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"utils/Preview Content\"";
@@ -680,9 +706,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.fernandosalom.utils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -25,10 +25,15 @@ struct MenuView: View {
                         MenuListRowView(option: option)
                     }
                 }
+                if let destination = option.destination as? ExecuteView {
+                    NavigationLink(destination: destination) {
+                        MenuListRowView(option: option)
+                    }
+                }
             }
             .onAppear(perform: {
                 viewModel.load()
-            }).navigationViewStyle(.stack)
+            })
         }
     }
 }

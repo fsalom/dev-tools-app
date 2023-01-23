@@ -18,6 +18,7 @@ final class MenuViewModel: ObservableObject {
 
     func load() {
         menuOptions = [Menu(name: "JSON Parser", destination: JsonParserView() ),
-                       Menu(name: "Generate", destination: JsonEditorView() )]
+                       Menu(name: "Generate", destination: JsonEditorView() ),
+                       Menu(name: "Execute", destination: ExecuteView() )]
     }
 }
