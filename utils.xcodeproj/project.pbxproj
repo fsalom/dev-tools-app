@@ -21,6 +21,8 @@
 		C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18D0297E9B3600BD519D /* ExecuteView.swift */; };
 		C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18D2297E9B4600BD519D /* ExecuteViewModel.swift */; };
 		C16E18D6297E9D7C00BD519D /* launch_ruby.sh in Resources */ = {isa = PBXBuildFile; fileRef = C16E18D5297E9D7C00BD519D /* launch_ruby.sh */; };
+		C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A082980450E00F0CFE4 /* DateFormatterView.swift */; };
+		C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		C16E18D2297E9B4600BD519D /* ExecuteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteViewModel.swift; sourceTree = "<group>"; };
 		C16E18D5297E9D7C00BD519D /* launch_ruby.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = launch_ruby.sh; sourceTree = "<group>"; };
 		C16E18D7297EA4D900BD519D /* utils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = utils.entitlements; sourceTree = "<group>"; };
+		C1746A082980450E00F0CFE4 /* DateFormatterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterView.swift; sourceTree = "<group>"; };
+		C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterViewModel.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -214,6 +218,15 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		C1746A07298044EF00F0CFE4 /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				C1746A082980450E00F0CFE4 /* DateFormatterView.swift */,
+				C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */,
+			);
+			path = DateFormatter;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +312,7 @@
 		C1BF0325296C2BE4008FE367 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C1746A07298044EF00F0CFE4 /* DateFormatter */,
 				C16E18CF297E9B2100BD519D /* Execute */,
 				C16E18C5297AA2EB00BD519D /* JsonEditor */,
 				C1BF032F296C5654008FE367 /* JsonParser */,
@@ -483,6 +497,7 @@
 				C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
 				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
+				C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */,
 				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
@@ -494,6 +509,7 @@
 				C16E18002973F3B400BD519D /* Button.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
 				C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */,
+				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
 				C16E18122975510500BD519D /* String.swift in Sources */,
 				C16E18C7297AA4F700BD519D /* JsonEditorView.swift in Sources */,
@@ -666,7 +682,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,7 +717,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

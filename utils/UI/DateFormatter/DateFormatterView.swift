@@ -1,14 +1,14 @@
 //
-//  ExecuteView.swift
+//  DateFormatterView.swift
 //  utils
 //
-//  Created by Fernando Salom Carratala on 23/1/23.
+//  Created by Fernando Salom Carratala on 24/1/23.
 //
 
 import SwiftUI
 
-struct ExecuteView: View {
-    @StateObject private var viewModel = ExecuteViewModel()
+struct DateFormatterView: View {
+    @StateObject private var viewModel = DateFormatterViewModel()
     @State private var text: String = ""
     @State private var errorMessage: String = ""
     @State var presentingModal = false
@@ -25,8 +25,11 @@ struct ExecuteView: View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     Button {
-                        // viewModel.execute()
+                        
                     } label: {
                         Text("Enviar")
                     }.buttonStyle(GrowingButton())
@@ -36,8 +39,8 @@ struct ExecuteView: View {
     }
 }
 
-struct ExecuteView_Previews: PreviewProvider {
+struct DateFormatterView_Previews: PreviewProvider {
     static var previews: some View {
-        ExecuteView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        JsonParserView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

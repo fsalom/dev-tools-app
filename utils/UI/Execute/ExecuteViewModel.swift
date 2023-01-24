@@ -13,12 +13,31 @@ extension ExecuteView {
 
         init() { }
 
+        /*
         func execute() {
-            let executableURL = URL(fileURLWithPath:"/Users/myname/Desktop/run.sh")
-                                    try! Process.run(executableURL,
-                                                     arguments: [],
-                                                     terminationHandler: { _ in  })
+            shell("ls")
+            //shell("xcodebuild", "-workspace", "myApp.xcworkspace")
         }
+
+        func shell(_ command: String) -> String {
+            #if targetEnvironment(macCatalyst)
+            let task = Process()
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            task.standardError = pipe
+            task.arguments = ["-c", command]
+            task.standardInput = nil
+            task.resume()
+            task.start
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = String(data: data, encoding: .utf8)!
+            return output
+            #else
+            print("Your regular code")
+            return ""
+            #endif
+
+        }
+         */
     }
 }
-
