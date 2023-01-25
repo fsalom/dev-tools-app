@@ -23,6 +23,7 @@
 		C16E18D6297E9D7C00BD519D /* launch_ruby.sh in Resources */ = {isa = PBXBuildFile; fileRef = C16E18D5297E9D7C00BD519D /* launch_ruby.sh */; };
 		C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A082980450E00F0CFE4 /* DateFormatterView.swift */; };
 		C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */; };
+		C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		C16E18D7297EA4D900BD519D /* utils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = utils.entitlements; sourceTree = "<group>"; };
 		C1746A082980450E00F0CFE4 /* DateFormatterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterView.swift; sourceTree = "<group>"; };
 		C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterViewModel.swift; sourceTree = "<group>"; };
+		C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextFieldModifier.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		C16E17FE2973F32600BD519D /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				C1746A0C29805BD400F0CFE4 /* TextField */,
 				C16E17FF2973F3B400BD519D /* Button.swift */,
 			);
 			path = Style;
@@ -225,6 +228,14 @@
 				C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */,
 			);
 			path = DateFormatter;
+			sourceTree = "<group>";
+		};
+		C1746A0C29805BD400F0CFE4 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		C1BF02E8296C2589008FE367 = {
@@ -508,6 +519,7 @@
 				C16E181929769D0E00BD519D /* Header.swift in Sources */,
 				C16E18002973F3B400BD519D /* Button.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
+				C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */,
 				C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */,
 				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
