@@ -20,32 +20,33 @@ struct DateFormatterView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Fecha:").frame(width: 100)
+                Text("Fecha:")
+                    .frame(width: 100, alignment: .leading)
+                Image(systemName: "calendar.badge.clock")
                 TextField("Añade tu fecha", text: $viewModel.date)
                     .textFieldStyle(RoundTextFieldModifier())
-                Button("Ahora") {
+                Button("Ahora (timestamp)") {
                     viewModel.date = String(Date().timeIntervalSince1970)
                 }.buttonStyle(GrowingButton())
             }
             HStack {
-                Text("Formato:").frame(width: 100)
+                Text("Formato:")
+                    .frame(width: 100, alignment: .leading)
+                Image(systemName: viewModel.resultFormat == "match" ? "checkmark.bubble.fill" : "ellipsis.bubble")
                 TextField("Añade el formato para la fecha. Ejemplo: Y-m-d", text: $viewModel.formatDate)
                     .textFieldStyle(RoundTextFieldModifier())
+                    .overlay(viewModel.resultFormat == "match" ?  RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color("ok"), lineWidth: 2) : nil
+                    )
             }
             HStack {
                 Text(viewModel.resultDate)
                     .padding(15)
-                    .font(.system(size: 30, weight: .bold))
-            }
-            HStack {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                Button {
-
-                } label: {
-                    Text("Enviar")
-                }.buttonStyle(GrowingButton())
+                    .font(.system(size: 36, weight: .bold))
+                    .overlay( RoundedRectangle(cornerRadius: 14)
+                        .stroke(Color("ok"), lineWidth: 2)
+                    )
+                    .frame(maxWidth: .infinity)
             }
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))

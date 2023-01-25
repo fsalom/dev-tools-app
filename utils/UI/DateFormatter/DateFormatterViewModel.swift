@@ -20,12 +20,15 @@ extension DateFormatterView {
             }
         }
         @Published var resultDate: String = ""
+        @Published var resultFormat: String = ""
 
         init() {
         }
 
         func calculateDate(with date: String, and format: String) {
             if date.isEmpty || format.isEmpty {
+                resultFormat = "not match"
+                resultDate = ""
                 return
             }
             let dateFormatter = DateFormatter()
@@ -42,8 +45,10 @@ extension DateFormatterView {
                 let date = Date(timeIntervalSince1970: timeInterval)
                 resultDate = dateFormatter.string(from: date)
             } else {
-                if let rawDate = dateFormatter.date(from: date) {
-                    resultDate = dateFormatter.string(from: rawDate)
+                if let _ = dateFormatter.date(from: date) {                    
+                    resultFormat = "match"
+                } else {
+                    resultFormat = "not match"
                 }
             }
         }
