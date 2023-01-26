@@ -106,6 +106,20 @@ struct JsonEditorView: View {
                         }.listStyle(.plain)
                     }
                 }
+                HStack {
+                    Button {
+
+                    } label: {
+                        Text("Descargar para Xcode")
+                    }.buttonStyle(GrowingButton())
+                    Spacer()
+                    Button {
+
+                    } label: {
+                        Text("Descargar para Android")
+                    }.buttonStyle(GrowingButton())
+                }
+                Spacer()
             }
             .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
             .navigationTitle("Parseador de JSON")
