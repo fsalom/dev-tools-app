@@ -38,16 +38,18 @@ extension DateFormatterView {
             if let intDate = Int(date) {
                 let timeInterval = TimeInterval(intDate)
                 let date = Date(timeIntervalSince1970: timeInterval)
-                resultDate = dateFormatter.string(from: date)
+                resultDate = "⏰ " + dateFormatter.string(from: date)
             }
             else if let floatDate = Float(date) {
                 let timeInterval = TimeInterval(floatDate)
                 let date = Date(timeIntervalSince1970: timeInterval)
-                resultDate = dateFormatter.string(from: date)
+                resultDate = "⏰ " + dateFormatter.string(from: date)
             } else {
-                if let _ = dateFormatter.date(from: date) {                    
+                if let _ = dateFormatter.date(from: date) {
+                    resultDate = "Formato correcto ✅ "
                     resultFormat = "match"
                 } else {
+                    resultDate = ""
                     resultFormat = "not match"
                 }
             }

@@ -43,10 +43,6 @@ struct DateFormatterView: View {
                 Text(viewModel.resultDate)
                     .padding(15)
                     .font(.system(size: 36, weight: .bold))
-                    .overlay( RoundedRectangle(cornerRadius: 14)
-                        .stroke(Color("ok"), lineWidth: 2)
-                    )
-                    .frame(maxWidth: .infinity)
             }
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
