@@ -10,6 +10,7 @@ import Foundation
 extension ExecuteView {
     @MainActor class ExecuteViewModel: ObservableObject {
         @Published var isLoading: Bool = false
+        @Published var message: String = ""
 
         init() { }
 
@@ -39,5 +40,12 @@ extension ExecuteView {
 
         }
          */
+
+        func speak() {
+            let executableURL = URL(fileURLWithPath: "/usr/bin/say")
+            try! Process.run(executableURL,
+                             arguments: [self.message],
+                             terminationHandler: nil)
+        }
     }
 }

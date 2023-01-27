@@ -109,11 +109,7 @@ struct JsonParserView: View {
                             .frame(width: 40.0, height: 40.0)
                     }
                     TextField("añadir url", text: $url)
-                        .padding(15)
-                        .font(.system(size: 16, weight: .bold))
-                        .overlay(RoundedRectangle(cornerRadius: 14)
-                            .stroke(url.isEmpty ? Color.gray : Color.green, lineWidth: 2)
-                        )
+                        .textFieldStyle(RoundTextFieldModifier())
                         .onSubmit {
                             viewModel.text = ""
                             do {
@@ -161,7 +157,9 @@ struct JsonParserView: View {
                                                 .frame(width: 20, height: 20.0)
                                                 .onTapGesture {
                                                     self.presentingModal = true
+                                                    #if os(iOS)
                                                     UIPasteboard.general.string = urlString
+                                                    #endif
                                                 }
                                         } else {
                                             Text("\(value)").foregroundColor(.orange)

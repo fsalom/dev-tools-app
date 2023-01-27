@@ -51,26 +51,10 @@ struct JsonEditorView: View {
                         })
                     }
                 }
-                HStack {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    Button {
-                        do {
-                            try viewModel.parse(this: text)
-                        } catch {
-                            if let message = error as? CommonError {
-                                errorMessage = message.localizedDescription
-                            }
-                        }
-                    } label: {
-                        Text("Enviar")
-                    }.buttonStyle(GrowingButton())
-                }
+
                 TextEditor(text: $text)
-                    .padding(15)
-                    .font(.system(size: 16, weight: .bold))
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
+                    .textFieldStyle(.plain)
+                    .font(.system(size: 12, weight: .regular))
 
                 if let element = viewModel.element {
                     if let content = element.content {
@@ -93,7 +77,9 @@ struct JsonEditorView: View {
                                                 .frame(width: 20, height: 20.0)
                                                 .onTapGesture {
                                                     self.presentingModal = true
+                                                    #if os(iOS)
                                                     UIPasteboard.general.string = urlString
+                                                    #endif
                                                 }
                                         } else {
                                             Text("\(value)").foregroundColor(.orange)
@@ -107,16 +93,19 @@ struct JsonEditorView: View {
                     }
                 }
                 HStack {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     Button {
-
+                        do {
+                            try viewModel.parse(this: text)
+                        } catch {
+                            if let message = error as? CommonError {
+                                errorMessage = message.localizedDescription
+                            }
+                        }
                     } label: {
-                        Text("Descargar para Xcode")
-                    }.buttonStyle(GrowingButton())
-                    Spacer()
-                    Button {
-
-                    } label: {
-                        Text("Descargar para Android")
+                        Text("Enviar")
                     }.buttonStyle(GrowingButton())
                 }
                 Spacer()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C105F08929832A27009826B3 /* FirebaseTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105F08829832A27009826B3 /* FirebaseTesterView.swift */; };
 		C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */; };
 		C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D29296DF1000044C922 /* NetworkClientJSON.swift */; };
 		C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C105F08829832A27009826B3 /* FirebaseTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTesterView.swift; sourceTree = "<group>"; };
 		C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserViewModel.swift; sourceTree = "<group>"; };
 		C1688D29296DF1000044C922 /* NetworkClientJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientJSON.swift; sourceTree = "<group>"; };
 		C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceCodePro.ttf; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C105F08729832A18009826B3 /* FirebaseTester */ = {
+			isa = PBXGroup;
+			children = (
+				C105F08829832A27009826B3 /* FirebaseTesterView.swift */,
+			);
+			path = FirebaseTester;
+			sourceTree = "<group>";
+		};
 		C1688D28296DF0D80044C922 /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +333,7 @@
 		C1BF0325296C2BE4008FE367 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C105F08729832A18009826B3 /* FirebaseTester */,
 				C1746A07298044EF00F0CFE4 /* DateFormatter */,
 				C16E18CF297E9B2100BD519D /* Execute */,
 				C16E18C5297AA2EB00BD519D /* JsonEditor */,
@@ -519,6 +530,7 @@
 				C16E181929769D0E00BD519D /* Header.swift in Sources */,
 				C16E18002973F3B400BD519D /* Button.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
+				C105F08929832A27009826B3 /* FirebaseTesterView.swift in Sources */,
 				C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */,
 				C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */,
 				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
@@ -703,8 +715,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.fernandosalom.utils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -738,8 +750,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.fernandosalom.utils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

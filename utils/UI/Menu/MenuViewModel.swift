@@ -20,6 +20,7 @@ final class MenuViewModel: ObservableObject {
         menuOptions = [Menu(name: "JSON Parser", destination: JsonParserView()),
                        Menu(name: "Generate", destination: JsonEditorView()),
                        Menu(name: "Execute", destination: ExecuteView()),
-                       Menu(name: "Date Formatter", destination: DateFormatterView())]
+                       Menu(name: "Date Formatter", destination: DateFormatterView()),
+                       Menu(name: "Firebase tester", destination: FirebaseTesterView())]
     }
 }

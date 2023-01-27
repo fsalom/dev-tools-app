@@ -10,8 +10,9 @@ import SwiftUI
 struct RoundTextFieldModifier: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
+            .textFieldStyle(.plain)
             .padding(15)
-            .font(.system(size: 16, weight: .bold))
+            .font(.system(size: 12, weight: .regular))
             .overlay(RoundedRectangle(cornerRadius: 14)
                 .stroke(Color.gray, lineWidth: 2)
             )

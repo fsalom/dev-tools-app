@@ -22,16 +22,22 @@ struct ExecuteView: View {
     }
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             VStack(alignment: .leading) {
                 HStack {
+                    TextField(text: $viewModel.message) {
+
+                    }.textFieldStyle(RoundTextFieldModifier())
                     Button {
+                        viewModel.speak()
                         // viewModel.execute()
                     } label: {
-                        Text("Enviar")
+                        Image(systemName: "speaker.wave.3")
                     }.buttonStyle(GrowingButton())
                 }
-            }
+                Spacer()
+            }.padding(15)
+            .navigationTitle("VoiceOver")
         }
     }
 }
