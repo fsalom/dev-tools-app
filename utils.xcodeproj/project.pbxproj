@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C105F08929832A27009826B3 /* FirebaseTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105F08829832A27009826B3 /* FirebaseTesterView.swift */; };
+		C105F09429846146009826B3 /* addFile.rb in Resources */ = {isa = PBXBuildFile; fileRef = C16E18CE297E988100BD519D /* addFile.rb */; };
+		C105F0982984631A009826B3 /* addFileToXcode.rb in Resources */ = {isa = PBXBuildFile; fileRef = C105F0972984631A009826B3 /* addFileToXcode.rb */; };
 		C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */; };
 		C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D29296DF1000044C922 /* NetworkClientJSON.swift */; };
 		C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */; };
@@ -60,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		C105F08829832A27009826B3 /* FirebaseTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTesterView.swift; sourceTree = "<group>"; };
+		C105F0972984631A009826B3 /* addFileToXcode.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = addFileToXcode.rb; sourceTree = "<group>"; };
 		C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserViewModel.swift; sourceTree = "<group>"; };
 		C1688D29296DF1000044C922 /* NetworkClientJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientJSON.swift; sourceTree = "<group>"; };
 		C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceCodePro.ttf; sourceTree = "<group>"; };
@@ -251,6 +254,7 @@
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
+				C105F0972984631A009826B3 /* addFileToXcode.rb */,
 				C16E18CE297E988100BD519D /* addFile.rb */,
 				C1BF02F3296C2589008FE367 /* utils */,
 				C1BF0309296C258B008FE367 /* utilsTests */,
@@ -486,6 +490,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C105F0982984631A009826B3 /* addFileToXcode.rb in Resources */,
+				C105F09429846146009826B3 /* addFile.rb in Resources */,
 				C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */,
 				C1BF02FC296C258B008FE367 /* Preview Assets.xcassets in Resources */,
 				C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */,

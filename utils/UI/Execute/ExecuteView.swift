@@ -35,6 +35,14 @@ struct ExecuteView: View {
                         Image(systemName: "speaker.wave.3")
                     }.buttonStyle(GrowingButton())
                 }
+                HStack {
+                    Button {
+                        viewModel.executeXcode()
+                        viewModel.ruby()
+                    } label: {
+                        Image(systemName: "speaker.wave.3")
+                    }.buttonStyle(GrowingButton())
+                }
                 Spacer()
             }.padding(15)
             .navigationTitle("VoiceOver")
