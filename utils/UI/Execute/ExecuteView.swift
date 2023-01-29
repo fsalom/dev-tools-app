@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ExecuteView: View {
     @StateObject private var viewModel = ExecuteViewModel()
     @State private var text: String = ""
+    @State private var fileImporterIsPresented: Bool = false
+    @State private var path: String = ""
     @State private var errorMessage: String = ""
     @State var presentingModal = false
+    private let xcodeproj: UTType
     @State private var width: CGFloat = 0
     @FocusState private var focusedField: Field?
     @Environment(\.openURL) private  var openURL
@@ -19,6 +23,11 @@ struct ExecuteView: View {
 
     private enum Field: Int, CaseIterable {
         case url
+    }
+
+    init() {
+        guard let type = UTType(tag: "xcodeproj", tagClass: .filenameExtension, conformingTo: .compositeContent) else { fatalError() }
+        xcodeproj = type
     }
 
     var body: some View {
@@ -34,18 +43,32 @@ struct ExecuteView: View {
                     } label: {
                         Image(systemName: "speaker.wave.3")
                     }.buttonStyle(GrowingButton())
-                }
+                }.padding(15)
                 HStack {
                     Button {
                         viewModel.executeXcode()
                         viewModel.ruby()
                     } label: {
-                        Image(systemName: "speaker.wave.3")
+                        Image(systemName: "scroll")
                     }.buttonStyle(GrowingButton())
-                }
+                }.padding(15)
+                HStack {
+                    Button {
+                        let panel = NSOpenPanel()
+                        panel.allowsMultipleSelection = false
+                        panel.allowedContentTypes = [xcodeproj]
+                        panel.canChooseDirectories = false
+                        if panel.runModal() == .OK {
+                            path = panel.urls.first?.absoluteString ?? ""
+                        }
+                    } label: {
+                        Label("Añadir proyecto", systemImage: "folder.badge.plus")
+                    }.buttonStyle(GrowingButton())
+                    Text(path)
+                }.padding(15)
                 Spacer()
             }.padding(15)
-            .navigationTitle("VoiceOver")
+                .navigationTitle("VoiceOver")
         }
     }
 }

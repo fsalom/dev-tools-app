@@ -8,15 +8,29 @@
 import SwiftUI
 
 struct FirebaseTesterView: View {
+    @State private var openFile = false
     var body: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-
-            }) {
-                Image(systemName: "square.and.arrow.up")
+        Form {
+            //image 1
+            Button {
+                self.openFile.toggle()
+            } label: {
+                Label("Edit", systemImage: "pencil")
             }
         }
-        .padding()
+        .navigationTitle("File Importer")
+
+        //file importer
+        .fileImporter(isPresented: $openFile, allowedContentTypes: [.json]) { (res) in
+            do{
+                let fileUrl = try res.get()
+                print(fileUrl)
+                guard fileUrl.startAccessingSecurityScopedResource() else { return }
+            } catch{
+
+                print ("error reading")
+                print (error.localizedDescription)
+            }
+        }
     }
 }

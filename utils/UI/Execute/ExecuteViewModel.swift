@@ -14,33 +14,6 @@ extension ExecuteView {
 
         init() { }
 
-        /*
-        func execute() {
-            shell("ls")
-            //shell("xcodebuild", "-workspace", "myApp.xcworkspace")
-        }
-
-        func shell(_ command: String) -> String {
-            #if targetEnvironment(macCatalyst)
-            let task = Process()
-            let pipe = Pipe()
-            task.standardOutput = pipe
-            task.standardError = pipe
-            task.arguments = ["-c", command]
-            task.standardInput = nil
-            task.resume()
-            task.start
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
-            let output = String(data: data, encoding: .utf8)!
-            return output
-            #else
-            print("Your regular code")
-            return ""
-            #endif
-
-        }
-         */
-
         func speak() {
             let executableURL = URL(fileURLWithPath: "/usr/bin/say")
             try! Process.run(executableURL,
@@ -69,11 +42,6 @@ extension ExecuteView {
         func executeXcode() {
             print(shell("find /Users -type f -name \"*.xcodeproj\""))
             print(shell("ls -la"))
-/*
-            let executableURL = URL(fileURLWithPath: "addFile.rb")
-            try! Process.run(executableURL,
-                             arguments: [],
-                             terminationHandler: nil)*/
         }
 
         func shell(_ command: String) -> String {
