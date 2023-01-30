@@ -26,6 +26,9 @@ extension JsonEditorView {
                     let manager = JSONManager()
                     manager.parseJson(from: json as Any)
                     self.element = manager.root
+                    let createFile = CreateFileManager()
+                   
+                    createFile.createClassesIOS(element: manager.root, result: "")
                 } catch {
                     throw CommonError.parsingJSON
                 }

@@ -17,14 +17,14 @@ class Element: Identifiable {
     init() {}
 }
 
-enum TypeOf {
-    case int
-    case bool
-    case string
-    case float
-    case array
-    case dict
-    case unknown
+enum TypeOf: String {
+    case int = "int"
+    case bool = "bool"
+    case string = "string"
+    case float = "float"
+    case array = "array"
+    case dict = "dict"
+    case unknown = "unknown"
 }
 
 class JSONManager {
