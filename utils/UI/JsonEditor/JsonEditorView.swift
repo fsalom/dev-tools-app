@@ -30,8 +30,10 @@ struct JsonEditorView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("ERROR")
                                     .bold()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 Text(errorMessage)
                                     .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
                         .foregroundColor(Color.white)

@@ -18,19 +18,28 @@ extension JsonEditorView {
             networkClient = NetworkClientJSON()
         }
 
+        func dataToJson(_ data: Data) throws -> [String:AnyObject]? {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data,
+                                                            options: .mutableContainers) as? [String:AnyObject]
+                return json
+            } catch {
+                throw CommonError.parsingJSON
+            }
+        }
+
         func parse(this JSON: String) throws {
             if let data = JSON.data(using: .utf8) {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data,
-                                                                options: .mutableContainers) as? [String:AnyObject]
+                    let json = try dataToJson(data)
                     let manager = JSONManager()
                     manager.parseJson(from: json as Any)
                     self.element = manager.root
+
                     let createFile = CreateFileManager()
-                   
-                    createFile.createClassesIOS(element: manager.root, result: "")
+                    try createFile.createClassesIOS(element: manager.root, result: "")
                 } catch {
-                    throw CommonError.parsingJSON
+                    throw error
                 }
             }
         }

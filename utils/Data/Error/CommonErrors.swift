@@ -12,6 +12,7 @@ enum CommonError: Error {
     case parsingURL
     case invalidURL
     case networkFailed
+    case xcodeprojectNotSelected
 
     var localizedDescription: String {
         switch self {
@@ -23,6 +24,8 @@ enum CommonError: Error {
             return "La URL no es válida"
         case .networkFailed:
             return "Se ha producido un error accediendo al endpoint"
+        case .xcodeprojectNotSelected:
+            return "Debes seleccionar el proyecto destino"
         }
     }
 }

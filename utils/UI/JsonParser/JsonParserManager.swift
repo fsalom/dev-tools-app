@@ -31,6 +31,7 @@ class JSONManager {
     var root = Element()
 
     func parseJson(from json: Any) {
+        root.name = "root"
         parseJson(from: json, current: root)
     }
 
