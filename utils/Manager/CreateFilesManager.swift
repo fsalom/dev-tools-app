@@ -15,7 +15,7 @@ enum FileError: Error {
 
 class CreateFileManager {
     var filename = ""
-    var path: URL?
+    var path: String?
 
     init() {
         self.getXcodeProjFolder {
@@ -29,14 +29,17 @@ class CreateFileManager {
         panel.allowedContentTypes = [type]
         panel.canChooseDirectories = false
         if panel.runModal() == .OK {
-            path = panel.urls.first
+            guard var components = panel.urls.first?.pathComponents else { return }
+            components.removeLast()
+            path = components.joined(separator: "/")
         }
     }
 
     func createFile(with name: String) throws -> URL {
         let file = "\(name)DTO.swift"
         if let path {
-            return path.appendingPathComponent(file)
+            let url = URL(filePath: path)
+            return url.appendingPathComponent(file)
         } else {
             if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                 return dir.appendingPathComponent(file)
@@ -52,7 +55,7 @@ class CreateFileManager {
         guard let _ = path else { throw CommonError.xcodeprojectNotSelected }
 
         if element.type == .dict {
-            newResult.append("class \(element.name): Codable {\n")
+            newResult.append("struct \(element.name.capitalized)DTO: Codable {\n")
             var itemsPerType = [String: [Element]]()
 
             if let content = element.content {
@@ -66,53 +69,37 @@ class CreateFileManager {
             for (itemType, items) in itemsPerType {
                 if itemType == "array" {
                     for item in items {
-                        /*
-                        if let child = item.child {
-                            if child.type == .dictionary {
+                        if let childs = item.content, childs.count > 0 {
+                            let child = childs[0]
+                            if child.type == .dict {
+                                if child.name.contains("[") {
+                                    child.name = item.name
+                                }
                                 pending.append(child)
-                                newResult.append("    var \(item.name) = [\(child.name)Class]()\n")
+                                newResult.append("    var \(item.name) = [\(child.name.capitalized)DTO]()\n")
                             } else {
-                                newResult.append("    var \(item.name) = [\(child.type)]()\n")
+                                newResult.append("    var \(item.name) = [\(child.type.rawValue)]()\n")
                             }
                         }
-                         */
                     }
                 } else if itemType == "dict" {
                     for item in items {
-                        newResult.append("    var \(item.name): \(item.name)Class?\n")
+                        newResult.append("    var \(item.name): \(item.name.capitalized)DTO?\n")
                         pending.append(item)
                     }
                 } else if itemType == "nil" {
-                    /*
-                    newResult.append("    //var \(item.name): \(item.type)?\n")
-                     */
+                    //newResult.append("    //var \(item.name): \(item.type)?\n")
                 } else {
-                    /*
-                    newResult.append("    var \(item.name): \(item.type)?\n")
-                     */
-                }
-            }
-
-            newResult.append("\n")
-            newResult.append("    required init?(map: Map) {}\n")
-            newResult.append("\n")
-            newResult.append("    func mapping(map: Map) {\n")
-
-            for (itemType, items) in itemsPerType {
-                for item in items {
-                    if let content = item.content {
-                        if content.count > 0 || item.type != .array && item.type != .dict {
-                            if item.type == nil {
-                                newResult.append("        //\(item.name) <- map[\"\(item.name)\"]\n")
-                            } else {
-                                newResult.append("        \(item.name) <- map[\"\(item.name)\"]\n")
-                            }
+                    for item in items {
+                        if item.type == .unknown {
+                            newResult.append("    //var \(item.name): \(item.type.rawValue)?\n")
+                        } else {
+                            newResult.append("    var \(item.name): \(item.type.rawValue)?\n")
                         }
                     }
                 }
             }
 
-            newResult.append("    }\n")
             newResult.append("}\n")
             newResult.append("\n")
 
@@ -122,6 +109,7 @@ class CreateFileManager {
                     try newResult.write(to: fileUrl,
                                         atomically: false,
                                         encoding: .utf8)
+                    newResult = ""
                     for element in pending {
                         try createClassesIOS(element: element, result: newResult)
                     }

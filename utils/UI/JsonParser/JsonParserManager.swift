@@ -18,10 +18,10 @@ class Element: Identifiable {
 }
 
 enum TypeOf: String {
-    case int = "int"
-    case bool = "bool"
-    case string = "string"
-    case float = "float"
+    case int = "Int"
+    case bool = "Bool"
+    case string = "String"
+    case float = "Float"
     case array = "array"
     case dict = "dict"
     case unknown = "unknown"
