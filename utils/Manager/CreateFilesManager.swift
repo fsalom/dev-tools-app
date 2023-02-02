@@ -22,6 +22,12 @@ class CreateFileManager {
         }
     }
 
+    fileprivate func directoryExistsAtPath(_ path: String) -> Bool {
+        var isDirectory : ObjCBool = true
+        let exists = FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory)
+        return exists && isDirectory.boolValue
+    }
+
     func getXcodeProjFolder(completion: () -> Void) {
         guard let type = UTType(tag: "xcodeproj", tagClass: .filenameExtension, conformingTo: .compositeContent) else { fatalError() }
         let panel = NSOpenPanel()
@@ -30,8 +36,27 @@ class CreateFileManager {
         panel.canChooseDirectories = false
         if panel.runModal() == .OK {
             guard var components = panel.urls.first?.pathComponents else { return }
+            guard let xcodeproj = components.last else { return }
+            let projectName = xcodeproj.split(separator: ".")
             components.removeLast()
-            path = components.joined(separator: "/")
+            components.append(String(projectName[0]))
+
+            var componentsToData = components
+            componentsToData.append("Data")
+            componentsToData.append("DTO")
+
+            let pathToDTO = componentsToData.joined(separator: "/")
+            if directoryExistsAtPath(pathToDTO) {
+                path = pathToDTO
+            } else {
+                do {
+                    try FileManager.default.createDirectory(atPath: pathToDTO, withIntermediateDirectories: true)
+                    path = pathToDTO
+                } catch {
+                    path = components.joined(separator: "/")
+                }
+            }
+
         }
     }
 
