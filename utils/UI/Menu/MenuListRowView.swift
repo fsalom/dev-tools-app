@@ -13,7 +13,7 @@ struct MenuListRowView: View {
     var body: some View {
         HStack {
             //VStack(alignment: .leading) {
-                Image(systemName: "doc.text.fill")
+                Image(systemName: option.icon)
                 Text(option.name)
             //}
         }.padding(10)
@@ -23,7 +23,7 @@ struct MenuListRowView: View {
 struct MenuListRowView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            MenuListRowView(option: .init(name: "JSON", destination: JsonEditorView()))
+            MenuListRowView(option: .init(name: "JSON", icon: "", destination: JsonEditorView()))
         }
     }
 }

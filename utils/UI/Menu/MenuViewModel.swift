@@ -17,10 +17,10 @@ final class MenuViewModel: ObservableObject {
     }
 
     func load() {
-        menuOptions = [Menu(name: "JSON Parser", destination: JsonParserView()),
-                       Menu(name: "Generate", destination: JsonEditorView()),
-                       Menu(name: "Execute", destination: ExecuteView()),
-                       Menu(name: "Date Formatter", destination: DateFormatterView()),
-                       Menu(name: "Firebase tester", destination: FirebaseTesterView())]
+        menuOptions = [Menu(name: "Llamada API", icon: "phone.arrow.right", destination: JsonParserView()),
+                       Menu(name: "Parseador JSON", icon: "newspaper", destination: JsonEditorView()),
+                       Menu(name: "Ejecutar scripts", icon: "scroll", destination: ExecuteView()),
+                       Menu(name: "Formateador de fecha", icon: "calendar.badge.clock", destination: DateFormatterView()),
+                       Menu(name: "Firebase tester", icon: "phone.arrow.right", destination: FirebaseTesterView())]
     }
 }
