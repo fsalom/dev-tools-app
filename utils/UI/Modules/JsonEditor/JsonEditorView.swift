@@ -53,10 +53,61 @@ struct JsonEditorView: View {
                         })
                     }
                 }
+                HStack {
+                    Button {
+                        do {
+                            try viewModel.parse(this: text)
+                        } catch {
+                            if let message = error as? CommonError {
+                                errorMessage = message.localizedDescription
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Image(systemName: "filemenu.and.cursorarrow")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text("Ejecutar parseo")
+                        }
+                    }
+                    .padding(8)
+                    .background(viewModel.isValid(this: text) ? .blue : .gray)
+                    .disabled(!viewModel.isValid(this: text))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .buttonStyle(.plain)
+                    Button {
+                        do {
+                            try viewModel.createFile()
+                        } catch {
+                            if let message = error as? CommonError {
+                                errorMessage = message.localizedDescription
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Image(systemName: "hammer.circle.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text("Instalar DTO en proyecto")
+                        }
+                    }
+                    .padding(8)
+                    .background(viewModel.manager != nil && viewModel.isValid(this: text) ? .blue : .gray)
+                    .disabled(viewModel.manager == nil && !viewModel.isValid(this: text) ? true : false)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .buttonStyle(.plain)
 
-                TextEditor(text: $text)
-                    .textFieldStyle(.plain)
-                    .font(.system(size: 12, weight: .regular))
+
+                }
+                VStack {
+                    TextEditor(text: $text)
+                        .font(.callout)
+                        .padding(8)
+                }.overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(text.isEmpty ? .gray : Color.blue, lineWidth: 1)
+                )
+
 
                 if let element = viewModel.element {
                     if let content = element.content {
@@ -92,23 +143,9 @@ struct JsonEditorView: View {
                                 }
                             }
                         }.listStyle(.plain)
+                            .scrollContentBackground(.hidden)
+                            .background(Color.clear)
                     }
-                }
-                HStack {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    Button {
-                        do {
-                            try viewModel.parse(this: text)
-                        } catch {
-                            if let message = error as? CommonError {
-                                errorMessage = message.localizedDescription
-                            }
-                        }
-                    } label: {
-                        Text("Enviar")
-                    }.buttonStyle(GrowingButton())
                 }
                 Spacer()
             }

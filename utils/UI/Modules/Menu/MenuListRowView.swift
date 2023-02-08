@@ -12,10 +12,8 @@ struct MenuListRowView: View {
 
     var body: some View {
         HStack {
-            //VStack(alignment: .leading) {
-                Image(systemName: option.icon)
-                Text(option.name)
-            //}
+            Image(systemName: option.icon)
+            Text(option.name)
         }.padding(10)
     }
 }

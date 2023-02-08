@@ -11,11 +11,11 @@
 		C105F09429846146009826B3 /* addFile.rb in Resources */ = {isa = PBXBuildFile; fileRef = C16E18CE297E988100BD519D /* addFile.rb */; };
 		C105F0982984631A009826B3 /* addFileToXcode.rb in Resources */ = {isa = PBXBuildFile; fileRef = C105F0972984631A009826B3 /* addFileToXcode.rb */; };
 		C105F09B29870417009826B3 /* CreateFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105F09A29870417009826B3 /* CreateFilesManager.swift */; };
+		C13812C6299272750032D40B /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13812C5299272750032D40B /* TextEditor.swift */; };
 		C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */; };
 		C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D29296DF1000044C922 /* NetworkClientJSON.swift */; };
 		C1688D30296DFC8F0044C922 /* SourceCodePro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */; };
-		C16E18002973F3B400BD519D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17FF2973F3B400BD519D /* Button.swift */; };
-		C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E180B2973FE4C00BD519D /* Navigation.swift */; };
+		C16E18002973F3B400BD519D /* GrowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E17FF2973F3B400BD519D /* GrowingButton.swift */; };
 		C16E18122975510500BD519D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18112975510500BD519D /* String.swift */; };
 		C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E18142975643000BD519D /* FloatingNoticeView.swift */; };
 		C16E181929769D0E00BD519D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E181829769D0E00BD519D /* Header.swift */; };
@@ -65,11 +65,11 @@
 		C105F08829832A27009826B3 /* FirebaseTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTesterView.swift; sourceTree = "<group>"; };
 		C105F0972984631A009826B3 /* addFileToXcode.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = addFileToXcode.rb; sourceTree = "<group>"; };
 		C105F09A29870417009826B3 /* CreateFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFilesManager.swift; sourceTree = "<group>"; };
+		C13812C5299272750032D40B /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
 		C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserViewModel.swift; sourceTree = "<group>"; };
 		C1688D29296DF1000044C922 /* NetworkClientJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientJSON.swift; sourceTree = "<group>"; };
 		C1688D2F296DFC8E0044C922 /* SourceCodePro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceCodePro.ttf; sourceTree = "<group>"; };
-		C16E17FF2973F3B400BD519D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		C16E180B2973FE4C00BD519D /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		C16E17FF2973F3B400BD519D /* GrowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingButton.swift; sourceTree = "<group>"; };
 		C16E18112975510500BD519D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C16E18142975643000BD519D /* FloatingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingNoticeView.swift; sourceTree = "<group>"; };
 		C16E181829769D0E00BD519D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -144,6 +144,43 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		C13812C229925F950032D40B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF0326296C2BF0008FE367 /* Menu */,
+				C105F08729832A18009826B3 /* FirebaseTester */,
+				C1746A07298044EF00F0CFE4 /* DateFormatter */,
+				C16E18CF297E9B2100BD519D /* Execute */,
+				C16E18C5297AA2EB00BD519D /* JsonEditor */,
+				C1BF032F296C5654008FE367 /* JsonParser */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C13812C329925FFA0032D40B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C16E18112975510500BD519D /* String.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C13812C4299272680032D40B /* TextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				C13812C5299272750032D40B /* TextEditor.swift */,
+			);
+			path = TextEditor;
+			sourceTree = "<group>";
+		};
+		C13812C7299295CD0032D40B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C16E17FF2973F3B400BD519D /* GrowingButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		C1688D28296DF0D80044C922 /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,26 +209,19 @@
 		C16E17FE2973F32600BD519D /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				C13812C7299295CD0032D40B /* Button */,
+				C13812C4299272680032D40B /* TextEditor */,
 				C1746A0C29805BD400F0CFE4 /* TextField */,
-				C16E17FF2973F3B400BD519D /* Button.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
 		};
-		C16E180A2973FE1C00BD519D /* Helper */ = {
+		C16E1810297550F500BD519D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C16E180B2973FE4C00BD519D /* Navigation.swift */,
+				C13812C329925FFA0032D40B /* Extension */,
 			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		C16E1810297550F500BD519D /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				C16E18112975510500BD519D /* String.swift */,
-			);
-			path = Helper;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		C16E18132975642300BD519D /* FloatingNotice */ = {
@@ -289,8 +319,7 @@
 				C105F099298703D2009826B3 /* Manager */,
 				C16E18D7297EA4D900BD519D /* utils.entitlements */,
 				C16E18D4297E9D5C00BD519D /* Scripts */,
-				C16E18162975F14500BD519D /* Components */,
-				C16E1810297550F500BD519D /* Helper */,
+				C16E1810297550F500BD519D /* Common */,
 				C1BF02F4296C2589008FE367 /* utilsApp.swift */,
 				C1BF0325296C2BE4008FE367 /* UI */,
 				C1BF0323296C2A65008FE367 /* Data */,
@@ -348,14 +377,9 @@
 		C1BF0325296C2BE4008FE367 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C105F08729832A18009826B3 /* FirebaseTester */,
-				C1746A07298044EF00F0CFE4 /* DateFormatter */,
-				C16E18CF297E9B2100BD519D /* Execute */,
-				C16E18C5297AA2EB00BD519D /* JsonEditor */,
-				C1BF032F296C5654008FE367 /* JsonParser */,
-				C16E180A2973FE1C00BD519D /* Helper */,
+				C16E18162975F14500BD519D /* Components */,
+				C13812C229925F950032D40B /* Modules */,
 				C16E17FE2973F32600BD519D /* Style */,
-				C1BF0326296C2BF0008FE367 /* Menu */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -546,11 +570,11 @@
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,
 				C105F09B29870417009826B3 /* CreateFilesManager.swift in Sources */,
 				C16E181929769D0E00BD519D /* Header.swift in Sources */,
-				C16E18002973F3B400BD519D /* Button.swift in Sources */,
+				C13812C6299272750032D40B /* TextEditor.swift in Sources */,
+				C16E18002973F3B400BD519D /* GrowingButton.swift in Sources */,
 				C1BF0328296C2C42008FE367 /* MenuViewModel.swift in Sources */,
 				C105F08929832A27009826B3 /* FirebaseTesterView.swift in Sources */,
 				C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */,
-				C16E180C2973FE4C00BD519D /* Navigation.swift in Sources */,
 				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
 				C16E18122975510500BD519D /* String.swift in Sources */,

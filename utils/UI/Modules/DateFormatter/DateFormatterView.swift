@@ -27,7 +27,7 @@ struct DateFormatterView: View {
                     .textFieldStyle(RoundTextFieldModifier())
                 Button("Ahora (timestamp)") {
                     viewModel.date = String(Date().timeIntervalSince1970)
-                }.buttonStyle(GrowingButton())
+                }.buttonStyle(GrowingButton(padding: 8, foreground: .white, cornerRadius: 8))
             }
             HStack {
                 Text("Formato:")

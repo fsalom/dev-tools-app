@@ -65,7 +65,7 @@ struct JsonParserView: View {
                                 self.headers.append(Header(key: "", value: ""))
                             } label: {
                                 Text("Añadir headers")
-                            }.buttonStyle(GrowingButton())
+                            }.buttonStyle(GrowingButton(padding: 8, foreground: .white, cornerRadius: 8))
                         }
                     }else{
                         ForEach(self.$headers){ $header in
@@ -133,7 +133,7 @@ struct JsonParserView: View {
                         focusedField = nil
                     }, label: {
                         Text("Obtener")
-                    }).buttonStyle(GrowingButton())
+                    }).buttonStyle(GrowingButton(padding: 8, foreground: .white, cornerRadius: 8))
                 }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
 
                 if let element = viewModel.element {

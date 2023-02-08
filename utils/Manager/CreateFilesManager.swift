@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if os(macOS)
 import AppKit
+#endif
 import UniformTypeIdentifiers
 
 enum FileError: Error {
@@ -18,8 +20,10 @@ class CreateFileManager {
     var path: String?
 
     init() {
+        #if os(macOS)
         self.getXcodeProjFolder {
         }
+        #endif
     }
 
     fileprivate func directoryExistsAtPath(_ path: String) -> Bool {
@@ -28,6 +32,7 @@ class CreateFileManager {
         return exists && isDirectory.boolValue
     }
 
+#if os(macOS)
     func getXcodeProjFolder(completion: () -> Void) {
         guard let type = UTType(tag: "xcodeproj", tagClass: .filenameExtension, conformingTo: .compositeContent) else { fatalError() }
         let panel = NSOpenPanel()
@@ -59,6 +64,7 @@ class CreateFileManager {
 
         }
     }
+    #endif
 
     func createFile(with name: String) throws -> URL {
         let file = "\(name)DTO.swift"

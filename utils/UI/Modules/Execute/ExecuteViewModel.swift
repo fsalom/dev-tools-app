@@ -16,12 +16,15 @@ extension ExecuteView {
 
         func speak() {
             let executableURL = URL(fileURLWithPath: "/usr/bin/say")
+            #if os(macOS)
             try! Process.run(executableURL,
                              arguments: [self.message],
                              terminationHandler: nil)
+            #endif
         }
 
         func ruby() {
+            #if os(macOS)
             if let file = Bundle.main.url(forResource: "addFileToXcode", withExtension: "rb") {
               let task = Process()
 
@@ -37,6 +40,7 @@ extension ExecuteView {
                 print(output)
               }
             }
+            #endif
         }
 
         func executeXcode() {
@@ -45,6 +49,7 @@ extension ExecuteView {
         }
 
         func shell(_ command: String) -> String {
+            #if os(macOS)
             let task = Process()
             let pipe = Pipe()
 
@@ -57,8 +62,10 @@ extension ExecuteView {
 
             let data = pipe.fileHandleForReading.readDataToEndOfFile()
             let output = String(data: data, encoding: .utf8)!
-
             return output
+            #else
+            return ""
+            #endif
         }
     }
 }

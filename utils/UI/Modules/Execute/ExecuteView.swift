@@ -42,7 +42,7 @@ struct ExecuteView: View {
                         // viewModel.execute()
                     } label: {
                         Image(systemName: "speaker.wave.3")
-                    }.buttonStyle(GrowingButton())
+                    }.buttonStyle(GrowingButton(padding: 8, foreground: .white, cornerRadius: 8))
                 }.padding(15)
                 HStack {
                     Button {
@@ -50,10 +50,11 @@ struct ExecuteView: View {
                         viewModel.ruby()
                     } label: {
                         Image(systemName: "scroll")
-                    }.buttonStyle(GrowingButton())
+                    }.buttonStyle(GrowingButton(padding: 8, foreground: .white, cornerRadius: 8))
                 }.padding(15)
                 HStack {
                     Button {
+                        #if os(macOS)
                         let panel = NSOpenPanel()
                         panel.allowsMultipleSelection = false
                         panel.allowedContentTypes = [xcodeproj]
@@ -61,9 +62,10 @@ struct ExecuteView: View {
                         if panel.runModal() == .OK {
                             path = panel.urls.first?.absoluteString ?? ""
                         }
+                        #endif
                     } label: {
                         Label("Añadir proyecto", systemImage: "folder.badge.plus")
-                    }.buttonStyle(GrowingButton())
+                    }.buttonStyle(GrowingButton(padding: 8, foreground: .white, cornerRadius: 8))
                     Text(path)
                 }.padding(15)
                 Spacer()
