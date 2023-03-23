@@ -22,6 +22,6 @@ final class MenuViewModel: ObservableObject {
                        Menu(name: "Ejecutar scripts", icon: "scroll", destination: ExecuteView()),
                        Menu(name: "Formateador de fecha", icon: "calendar.badge.clock", destination: DateFormatterView()),
                        Menu(name: "Firebase tester", icon: "phone.arrow.right", destination: FirebaseTesterView()),
-                       Menu(name: "ChatGPT", icon: "phone.arrow.right", destination: ChatView())]
+                       Menu(name: "ChatGPT", icon: "brain.head.profile", destination: ChatView())]
     }
 }

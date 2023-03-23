@@ -51,7 +51,7 @@ struct ChatView: View {
                 .disabled(newMessageText.isEmpty)
             }
             .padding()
-        }
+        }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
     }
 }
 
