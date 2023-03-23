@@ -28,6 +28,8 @@
 		C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A082980450E00F0CFE4 /* DateFormatterView.swift */; };
 		C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */; };
 		C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */; };
+		C1A7C36229CCE87E00DB43BB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36129CCE87E00DB43BB /* Network.swift */; };
+		C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36429CCE8CE00DB43BB /* ChatView.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		C1746A082980450E00F0CFE4 /* DateFormatterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterView.swift; sourceTree = "<group>"; };
 		C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterViewModel.swift; sourceTree = "<group>"; };
 		C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextFieldModifier.swift; sourceTree = "<group>"; };
+		C1A7C36129CCE87E00DB43BB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		C1A7C36429CCE8CE00DB43BB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		C13812C229925F950032D40B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C1A7C36329CCE89500DB43BB /* ChatGPT */,
 				C1BF0326296C2BF0008FE367 /* Menu */,
 				C105F08729832A18009826B3 /* FirebaseTester */,
 				C1746A07298044EF00F0CFE4 /* DateFormatter */,
@@ -291,6 +296,22 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		C1A7C36029CCE87300DB43BB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C1A7C36129CCE87E00DB43BB /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C1A7C36329CCE89500DB43BB /* ChatGPT */ = {
+			isa = PBXGroup;
+			children = (
+				C1A7C36429CCE8CE00DB43BB /* ChatView.swift */,
+			);
+			path = ChatGPT;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +337,7 @@
 		C1BF02F3296C2589008FE367 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C1A7C36029CCE87300DB43BB /* Network */,
 				C105F099298703D2009826B3 /* Manager */,
 				C16E18D7297EA4D900BD519D /* utils.entitlements */,
 				C16E18D4297E9D5C00BD519D /* Scripts */,
@@ -559,6 +581,7 @@
 				C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */,
 				C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
+				C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */,
 				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
 				C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */,
 				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
@@ -578,6 +601,7 @@
 				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
 				C16E18122975510500BD519D /* String.swift in Sources */,
+				C1A7C36229CCE87E00DB43BB /* Network.swift in Sources */,
 				C16E18C7297AA4F700BD519D /* JsonEditorView.swift in Sources */,
 				C1BF0301296C258B008FE367 /* utils.xcdatamodeld in Sources */,
 				C1E0B0CD2971D7DA001AF5C3 /* JsonParserManager.swift in Sources */,
