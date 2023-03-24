@@ -14,17 +14,12 @@ struct Message: Identifiable {
 }
 
 struct ChatView: View {
-    @State private var newMessageText = ""
-    @State private var messages: [Message] = [
-        Message(text: "Hola, ¿cómo estás?", isSentByUser: false),
-        Message(text: "Estoy bien, gracias. ¿Y tú?", isSentByUser: true),
-        Message(text: "Estoy bien también, gracias.", isSentByUser: false)
-    ]
+    @StateObject private var viewModel = ChatViewModel()
 
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(messages) { message in
+                ForEach(viewModel.messages) { message in
                     HStack {
                         if message.isSentByUser {
                             Spacer()
@@ -41,14 +36,15 @@ struct ChatView: View {
                 }
             }
             HStack {
-                TextField("Escribe aquí...", text: $newMessageText)
+                TextField("Escribe aquí...", text: $viewModel.newMessageText)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button("Enviar") {
-                    let newMessage = Message(text: newMessageText, isSentByUser: true)
-                    messages.append(newMessage)
-                    newMessageText = ""
+                    let newMessage = Message(text: viewModel.newMessageText, isSentByUser: true)
+                    viewModel.messages.append(newMessage)
+                    viewModel.chatGPT(with: viewModel.newMessageText)
+                    viewModel.newMessageText = ""
                 }
-                .disabled(newMessageText.isEmpty)
+                .disabled(viewModel.newMessageText.isEmpty)
             }
             .padding()
         }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))

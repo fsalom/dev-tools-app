@@ -30,6 +30,8 @@
 		C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */; };
 		C1A7C36229CCE87E00DB43BB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36129CCE87E00DB43BB /* Network.swift */; };
 		C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36429CCE8CE00DB43BB /* ChatView.swift */; };
+		C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */; };
+		C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -88,6 +90,8 @@
 		C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextFieldModifier.swift; sourceTree = "<group>"; };
 		C1A7C36129CCE87E00DB43BB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C1A7C36429CCE8CE00DB43BB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTNetworkClient.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C1688D29296DF1000044C922 /* NetworkClientJSON.swift */,
+				C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */,
 			);
 			path = NetworkClient;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				C1A7C36429CCE8CE00DB43BB /* ChatView.swift */,
+				C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */,
 			);
 			path = ChatGPT;
 			sourceTree = "<group>";
@@ -580,12 +586,14 @@
 				C1BF032C296C2C80008FE367 /* Menu.swift in Sources */,
 				C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */,
 				C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */,
+				C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
 				C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */,
 				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
 				C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */,
 				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
+				C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
 				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,
 				C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */,
