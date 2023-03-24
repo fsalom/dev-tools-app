@@ -32,6 +32,7 @@
 		C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36429CCE8CE00DB43BB /* ChatView.swift */; };
 		C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */; };
 		C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */; };
+		C1A7C36B29CE2C3F00DB43BB /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36A29CE2C3F00DB43BB /* Keys.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		C1A7C36429CCE8CE00DB43BB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTNetworkClient.swift; sourceTree = "<group>"; };
+		C1A7C36A29CE2C3F00DB43BB /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				C13812C329925FFA0032D40B /* Extension */,
+				C1A7C36A29CE2C3F00DB43BB /* Keys.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
 				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,
+				C1A7C36B29CE2C3F00DB43BB /* Keys.swift in Sources */,
 				C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */,
 				C16E18C9297AA53200BD519D /* JsonEditorViewModel.swift in Sources */,
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,

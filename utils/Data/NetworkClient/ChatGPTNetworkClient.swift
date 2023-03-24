@@ -11,9 +11,16 @@ protocol ChatGPTNetworkClientProtocol {
     func send(this prompt: String) async throws -> String
 }
 
-struct MessageGPT: Codable {
-    var role: String
+struct MessageDTO: Codable {
     var content: String
+}
+
+struct ChoiceDTO: Codable {
+    var message: MessageDTO
+}
+
+struct ResponseDTO: Codable {
+    var choices: [ChoiceDTO]
 }
 
 final class ChatGPTNetworkClient: ChatGPTNetworkClientProtocol {
@@ -23,34 +30,35 @@ final class ChatGPTNetworkClient: ChatGPTNetworkClientProtocol {
     }
 
     func send(this prompt: String) async throws -> String {
-        let openAIEndpoint = "https://api.openai.com/v1/chat/completions"
-        let openAIKey = ""
-
+        let openaiAPIKey = Keys.chatGPT.value
+        let url = URL(string: "https://api.openai.com/v1/chat/completions")!
+        let parameters = ["model": "gpt-3.5-turbo",
+                          "messages": [
+                            ["role": "user",
+                             "content": prompt]
+                          ]
+        ] as [String : Any]
         let headers = [
             "Content-Type": "application/json",
-            "Authorization": "Bearer \(openAIKey)"
+            "Authorization": "Bearer \(openaiAPIKey)"
         ]
-
-        guard let url = URL(string: openAIEndpoint) else {
-            throw ChatError.invalidURL
-        }
-
-        let parameters = ["model": "gpt-3.5-turbo",
-                          "messages": [["role": "user",
-                                        "content": prompt]]] as [String : Any]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let (data, response) = try await URLSession.shared.data(for: request)
-
-        print(data)
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            print(response as? HTTPURLResponse)
+            throw NSError(domain: "error", code: 0, userInfo: nil)
+        }
+
+        let decoder = JSONDecoder()
+        do {
+            let parseData = try decoder.decode(ResponseDTO.self, from: data)
+            return parseData.choices.first?.message.content ?? "---"
+        } catch {
+            print(error)
             throw ChatError.fail
         }
-        print(response)
-        let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-        let completions = (json?["choices"] as? [[String: Any]])?.first?["text"] as? String ?? ""
-        return completions
     }
 }
