@@ -20,14 +20,24 @@ extension ChatView {
 
         func chatGPT(with prompt: String) {
             Task {
+                let message = Message(text: "",
+                                      isSentByUser: false,
+                                      state: .loading)
                 do {
-                    let text = try await networkClient.send(this: prompt)
-                    let message = Message(text: text, isSentByUser: false)
-                    print("text: \(text)")
                     messages.append(message)
+                    let text = try await networkClient.send(this: prompt)
+                    changeState(of: message.id, with: .success, and: text)
                 } catch {
+                    changeState(of: message.id, with: .error, and: error.localizedDescription)
                     print("text: \(error)")
                 }
+            }
+        }
+
+        func changeState(of identifier: UUID, with state: MessageState, and text: String) {
+            if let row = self.messages.firstIndex(where: {$0.id == identifier}) {
+                messages[row].state = state
+                messages[row].text = text
             }
         }
     }

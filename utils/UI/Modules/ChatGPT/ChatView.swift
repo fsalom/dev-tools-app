@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+enum MessageState {
+    case loading
+    case error
+    case success
+}
+
 struct Message: Identifiable {
     let id = UUID()
-    let text: String
+    var text: String
     let isSentByUser: Bool
+    var state: MessageState
 }
 
 struct ChatView: View {
@@ -24,11 +31,29 @@ struct ChatView: View {
                         if message.isSentByUser {
                             Spacer()
                         }
-                        Text(message.text)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(message.isSentByUser ? Color.blue : Color.green)
-                            .cornerRadius(10)
+                        switch message.state {
+                        case .loading:
+                            VStack {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle())
+                                    .scaleEffect(0.5)
+                            }.padding(10)
+                                .background(Color.green)
+                                .cornerRadius(10)
+                        case .error:
+                            Text("Se ha producido un erro")
+                                .padding()
+                                .foregroundColor(.red)
+                                .background(message.isSentByUser ? Color.blue : Color.green)
+                                .cornerRadius(10)
+                        case .success:
+                            Text(message.text)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(message.isSentByUser ? Color.blue : Color.green)
+                                .cornerRadius(10)
+                        }
+
                         if !message.isSentByUser {
                             Spacer()
                         }
@@ -36,10 +61,13 @@ struct ChatView: View {
                 }
             }
             HStack {
-                TextField("Escribe aquí...", text: $viewModel.newMessageText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Escribe aquí...",
+                          text: $viewModel.newMessageText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 Button("Enviar") {
-                    let newMessage = Message(text: viewModel.newMessageText, isSentByUser: true)
+                    let newMessage = Message(text: viewModel.newMessageText,
+                                             isSentByUser: true,
+                                             state: .success)
                     viewModel.messages.append(newMessage)
                     viewModel.chatGPT(with: viewModel.newMessageText)
                     viewModel.newMessageText = ""
