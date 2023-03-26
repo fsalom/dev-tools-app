@@ -64,13 +64,11 @@ struct ChatView: View {
                 TextField("Escribe aquí...",
                           text: $viewModel.newMessageText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .onSubmit {
+                    viewModel.createMessage()
+                }
                 Button("Enviar") {
-                    let newMessage = Message(text: viewModel.newMessageText,
-                                             isSentByUser: true,
-                                             state: .success)
-                    viewModel.messages.append(newMessage)
-                    viewModel.chatGPT(with: viewModel.newMessageText)
-                    viewModel.newMessageText = ""
+                    viewModel.createMessage()
                 }
                 .disabled(viewModel.newMessageText.isEmpty)
             }

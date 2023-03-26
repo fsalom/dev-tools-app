@@ -48,7 +48,6 @@ final class ChatGPTNetworkClient: ChatGPTNetworkClientProtocol {
         request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-            print(response as? HTTPURLResponse)
             throw NSError(domain: "error", code: 0, userInfo: nil)
         }
 

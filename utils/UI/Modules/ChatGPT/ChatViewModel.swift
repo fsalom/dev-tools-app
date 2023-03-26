@@ -40,6 +40,15 @@ extension ChatView {
                 messages[row].text = text
             }
         }
+
+        func createMessage() {
+            let newMessage = Message(text: newMessageText,
+                                     isSentByUser: true,
+                                     state: .success)
+            messages.append(newMessage)
+            chatGPT(with: newMessageText)
+            newMessageText = ""
+        }
     }
 }
 
