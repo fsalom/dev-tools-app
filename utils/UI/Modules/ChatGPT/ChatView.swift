@@ -7,63 +7,29 @@
 
 import SwiftUI
 
-enum MessageState {
-    case loading
-    case error
-    case success
-}
-
-struct Message: Identifiable {
-    let id = UUID()
-    var text: String
-    let isSentByUser: Bool
-    var state: MessageState
-}
-
 struct ChatView: View {
     @StateObject private var viewModel = ChatViewModel()
 
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(viewModel.messages) { message in
-                    HStack {
-                        if message.isSentByUser {
-                            Spacer()
+                ScrollViewReader { value in
+                    ForEach(viewModel.messages) { message in
+                        HStack {
+                            if message.isSentByUser { Spacer() }
+                            setStateView(for: message)
+                            if !message.isSentByUser { Spacer() }
                         }
-                        switch message.state {
-                        case .loading:
-                            VStack {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle())
-                                    .scaleEffect(0.5)
-                            }.padding(10)
-                                .background(Color.green)
-                                .cornerRadius(10)
-                        case .error:
-                            Text("Se ha producido un erro")
-                                .padding()
-                                .foregroundColor(.red)
-                                .background(message.isSentByUser ? Color.blue : Color.green)
-                                .cornerRadius(10)
-                        case .success:
-                            Text(message.text)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(message.isSentByUser ? Color.blue : Color.green)
-                                .cornerRadius(10)
-                        }
-
-                        if !message.isSentByUser {
-                            Spacer()
-                        }
+                    }
+                    .onChange(of: viewModel.messages) { _ in
+                        value.scrollTo(viewModel.messages.last?.id)
                     }
                 }
             }
             HStack {
                 TextField("Escribe aquí...",
                           text: $viewModel.newMessageText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textFieldStyle(RoundTextFieldModifier())
                 .onSubmit {
                     viewModel.createMessage()
                 }
@@ -74,6 +40,32 @@ struct ChatView: View {
             }
             .padding()
         }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+    }
+
+    func setStateView(for message: Message) -> some View {
+        switch message.state {
+        case .loading:
+            return AnyView(VStack {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(0.5)
+            }.padding(10)
+                .background(Color.green)
+                .cornerRadius(10))
+        case .error:
+            return AnyView(Text("Se ha producido un error")
+                .padding()
+                .foregroundColor(.red)
+                .background(message.isSentByUser ? Color.blue : Color.green)
+                .cornerRadius(10))
+        case .success:
+            return AnyView(Text(message.text)
+                .padding()
+                .foregroundColor(.white)
+                .background(message.isSentByUser ? Color.blue : Color.green)
+                .cornerRadius(10)
+                .id(message.id))
+        }
     }
 }
 

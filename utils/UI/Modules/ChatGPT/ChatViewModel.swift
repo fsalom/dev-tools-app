@@ -7,6 +7,19 @@
 
 import Foundation
 
+enum MessageState {
+    case loading
+    case error
+    case success
+}
+
+struct Message: Identifiable, Equatable {
+    let id = UUID()
+    var text: String
+    let isSentByUser: Bool
+    var state: MessageState
+}
+
 extension ChatView {
     @MainActor class ChatViewModel: ObservableObject {
         @Published var isLoading: Bool = false
