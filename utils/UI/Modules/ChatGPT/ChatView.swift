@@ -50,19 +50,20 @@ struct ChatView: View {
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(0.5)
             }.padding(10)
-                .background(Color.green)
+                .background(Color.gray)
                 .cornerRadius(10))
         case .error:
             return AnyView(Text("Se ha producido un error")
                 .padding()
                 .foregroundColor(.red)
-                .background(message.isSentByUser ? Color.blue : Color.green)
+                .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10))
         case .success:
             return AnyView(Text(message.text)
                 .padding()
+                .textSelection(.enabled)
                 .foregroundColor(.white)
-                .background(message.isSentByUser ? Color.blue : Color.green)
+                .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10)
                 .id(message.id))
         }
