@@ -59,10 +59,15 @@ struct ChatView: View {
                 .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10))
         case .success:
-            return AnyView(Text(message.text)
-                .padding()
-                .textSelection(.enabled)
-                .foregroundColor(.white)
+            return AnyView(VStack {
+                Text(message.text)
+                    .padding()
+                    .textSelection(.enabled)
+                Text("message.text")
+                    .padding()
+                    .textSelection(.enabled)
+
+            }.foregroundColor(.white)
                 .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10)
                 .id(message.id))

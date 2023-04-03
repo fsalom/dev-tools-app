@@ -12,32 +12,8 @@ protocol ChatGPTNetworkClientProtocol {
 }
 
 struct MessageDTO: Codable {
-    var content: String {
-        didSet {
-            getCode()
-        }
-    }
+    var content: String
     var attributed: AttributedString?
-
-    func getString(_ string: String, between start: String, and end: String) -> String? {
-        // Buscar el índice donde comienza el substring
-        guard let startIndex = string.range(of: start)?.upperBound else {
-            return nil
-        }
-
-        // Buscar el índice donde termina el substring
-        guard let endIndex = string.range(of: end, range: startIndex..<string.endIndex)?.lowerBound else {
-            return nil
-        }
-
-        // Obtener el substring
-        let substring = string.substring(with: startIndex..<endIndex)
-        return substring
-    }
-
-    func getCode() {
-        print(getString(content, between: "```", and: "```"))
-    }
 }
 
 struct ChoiceDTO: Codable {
@@ -80,10 +56,27 @@ final class ChatGPTNetworkClient: ChatGPTNetworkClientProtocol {
         do {
             let parseData = try decoder.decode(ResponseDTO.self, from: data)
             print(parseData)
+            print(getString(parseData.choices.first?.message.content ?? "", between: "```", and: "```"))
             return parseData.choices.first?.message.content ?? "---"
         } catch {
             print(error)
             throw ChatError.fail
         }
+    }
+
+    func getString(_ string: String, between start: String, and end: String) -> String? {
+        // Buscar el índice donde comienza el substring
+        guard let startIndex = string.range(of: start)?.upperBound else {
+            return nil
+        }
+
+        // Buscar el índice donde termina el substring
+        guard let endIndex = string.range(of: end, range: startIndex..<string.endIndex)?.lowerBound else {
+            return nil
+        }
+
+        // Obtener el substring
+        let substring = string.substring(with: startIndex..<endIndex)
+        return substring
     }
 }
