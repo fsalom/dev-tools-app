@@ -63,14 +63,20 @@ struct ChatView: View {
                 Text(message.text)
                     .padding()
                     .textSelection(.enabled)
-                Text("message.text")
-                    .padding()
-                    .textSelection(.enabled)
+                if let text = viewModel.getString(message.text, between: "```", and: "```") {
+                    Text(text)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .textSelection(.enabled)
+                }
 
             }.foregroundColor(.white)
                 .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10)
-                .id(message.id))
+                .id(message.id)
+                .padding(10))
+
         }
     }
 }
