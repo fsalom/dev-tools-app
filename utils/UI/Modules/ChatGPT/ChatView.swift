@@ -59,18 +59,25 @@ struct ChatView: View {
                 .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10))
         case .success:
-            return AnyView(VStack {
-                Text(message.text)
-                    .padding()
-                    .textSelection(.enabled)
-                if let text = viewModel.getString(message.text, between: "```", and: "```") {
-                    Text(text)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.black)
-                        .textSelection(.enabled)
-                }
-
+            return AnyView(
+                VStack {
+                    ForEach(message.contents.indices, id: \.self) { index in
+                                let content = message.contents[index]
+                                if content.type == .text {
+                                    Text(content.text)
+                                        .padding()
+                                        .textSelection(.enabled)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                } else if content.type == .code {
+                                    Text(content.text)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Color.black)
+                                        .textSelection(.enabled)
+                                        .cornerRadius(10)
+                                    Spacer()
+                                }
+                            }
             }.foregroundColor(.white)
                 .background(message.isSentByUser ? Color.blue : Color.gray)
                 .cornerRadius(10)

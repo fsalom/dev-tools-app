@@ -13,11 +13,57 @@ enum MessageState {
     case success
 }
 
-struct Message: Identifiable, Equatable {
-    let id = UUID()
+struct MessageContent {
+    enum MessageType {
+        case text
+        case code
+    }
     var text: String
+    var type: MessageType
+}
+
+struct Message: Identifiable, Equatable {
+    static func == (lhs: Message, rhs: Message) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    let id = UUID()
+    var contents: [MessageContent]
     let isSentByUser: Bool
     var state: MessageState
+
+    mutating func evaluate(this text: String){
+        let tokens = text.split(separator: "```")
+        for token in tokens {
+            print("-----")
+            print(token)
+            if token.contains("```") {
+                contents.append(MessageContent(text: String(token), type: .code))
+            }else {
+                contents.append(MessageContent(text: String(token), type: .text))
+            }
+        }
+    }
+
+    init(isSentByUser: Bool, state: MessageState){
+        self.isSentByUser = isSentByUser
+        self.state = state
+        self.contents = []
+    }
+
+    func getString(_ string: String, between start: String, and end: String) -> String? {
+        guard let startIndex = string.range(of: start)?.upperBound else {
+            return nil
+        }
+
+        guard let endIndex = string.range(of: end, range: startIndex..<string.endIndex)?.lowerBound else {
+            return nil
+        }
+
+        let substring = string.substring(with: startIndex..<endIndex)
+        return substring
+    }
+
 }
 
 extension ChatView {
@@ -33,8 +79,7 @@ extension ChatView {
 
         func chatGPT(with prompt: String) {
             Task {
-                let message = Message(text: "",
-                                      isSentByUser: false,
+                let message = Message(isSentByUser: false,
                                       state: .loading)
                 do {
                     messages.append(message)
@@ -50,34 +95,21 @@ extension ChatView {
         func changeState(of identifier: UUID, with state: MessageState, and text: String) {
             if let row = self.messages.firstIndex(where: {$0.id == identifier}) {
                 messages[row].state = state
-                messages[row].text = text
+
+                messages[row].evaluate(this: text)
             }
         }
 
         func createMessage() {
-            let newMessage = Message(text: newMessageText,
-                                     isSentByUser: true,
+            var newMessage = Message(isSentByUser: true,
                                      state: .success)
+            newMessage.contents = [MessageContent(text: newMessageText, type: .text)]
             messages.append(newMessage)
             chatGPT(with: newMessageText)
             newMessageText = ""
         }
 
-        func getString(_ string: String, between start: String, and end: String) -> String? {
-            // Buscar el índice donde comienza el substring
-            guard let startIndex = string.range(of: start)?.upperBound else {
-                return nil
-            }
 
-            // Buscar el índice donde termina el substring
-            guard let endIndex = string.range(of: end, range: startIndex..<string.endIndex)?.lowerBound else {
-                return nil
-            }
-
-            // Obtener el substring
-            let substring = string.substring(with: startIndex..<endIndex)
-            return substring
-        }
     }
 }
 

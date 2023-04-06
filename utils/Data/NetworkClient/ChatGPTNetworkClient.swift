@@ -13,7 +13,6 @@ protocol ChatGPTNetworkClientProtocol {
 
 struct MessageDTO: Codable {
     var content: String
-    var attributed: AttributedString?
 }
 
 struct ChoiceDTO: Codable {
