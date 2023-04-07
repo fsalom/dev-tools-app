@@ -72,7 +72,6 @@ struct ChatView: View {
                                 Text(content.text)
                                     .padding(8)
                                     .textSelection(.enabled)
-                                    .frame(maxWidth: .infinity, alignment: message.isSentByUser ? .trailing : .leading)
                             }
                         } else if content.type == .code {
                             Text(content.text)
