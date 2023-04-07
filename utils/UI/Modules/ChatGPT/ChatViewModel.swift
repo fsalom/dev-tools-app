@@ -34,14 +34,9 @@ struct Message: Identifiable, Equatable {
 
     mutating func evaluate(this text: String){
         let tokens = text.split(separator: "```")
-        for token in tokens {
-            print("-----")
-            print(token)
-            if token.contains("```") {
-                contents.append(MessageContent(text: String(token), type: .code))
-            }else {
-                contents.append(MessageContent(text: String(token), type: .text))
-            }
+        for (index, token) in tokens.enumerated() {
+            contents.append(MessageContent(text: String(token),
+                                           type: index % 2 == 0 ? .text : .code))
         }
     }
 
@@ -103,7 +98,8 @@ extension ChatView {
         func createMessage() {
             var newMessage = Message(isSentByUser: true,
                                      state: .success)
-            newMessage.contents = [MessageContent(text: newMessageText, type: .text)]
+            newMessage.contents = [MessageContent(text: newMessageText,
+                                                  type: .text)]
             messages.append(newMessage)
             chatGPT(with: newMessageText)
             newMessageText = ""

@@ -16,9 +16,9 @@ struct ChatView: View {
                 ScrollViewReader { value in
                     ForEach(viewModel.messages) { message in
                         HStack {
-                            if message.isSentByUser { Spacer() }
+                            if message.isSentByUser { Spacer(minLength: 200.0) }
                             setStateView(for: message)
-                            if !message.isSentByUser { Spacer() }
+                            if !message.isSentByUser { Spacer(minLength: 200.0) }
                         }
                     }
                     .onChange(of: viewModel.messages) { _ in
@@ -62,27 +62,32 @@ struct ChatView: View {
             return AnyView(
                 VStack {
                     ForEach(message.contents.indices, id: \.self) { index in
-                                let content = message.contents[index]
-                                if content.type == .text {
-                                    Text(content.text)
-                                        .padding()
-                                        .textSelection(.enabled)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                } else if content.type == .code {
-                                    Text(content.text)
-                                        .padding()
-                                        .foregroundColor(.white)
-                                        .background(Color.black)
-                                        .textSelection(.enabled)
-                                        .cornerRadius(10)
-                                    Spacer()
-                                }
+                        let content = message.contents[index]
+                        if content.type == .text {
+                            if message.isSentByUser {
+                                Text(content.text)
+                                    .padding(8)
+                                    .textSelection(.enabled)
+                            } else {
+                                Text(content.text)
+                                    .padding(8)
+                                    .textSelection(.enabled)
+                                    .frame(maxWidth: .infinity, alignment: message.isSentByUser ? .trailing : .leading)
                             }
-            }.foregroundColor(.white)
-                .background(message.isSentByUser ? Color.blue : Color.gray)
-                .cornerRadius(10)
-                .id(message.id)
-                .padding(10))
+                        } else if content.type == .code {
+                            Text(content.text)
+                                .padding(8)
+                                .foregroundColor(.white)
+                                .background(Color.black)
+                                .textSelection(.enabled)
+                                .cornerRadius(10)
+                        }
+                    }
+                }.foregroundColor(.white)
+                    .background(message.isSentByUser ? Color.blue : Color.gray)
+                    .cornerRadius(10)
+                    .id(message.id)
+                    .padding(10))
 
         }
     }
