@@ -34,6 +34,7 @@
 		C1A7C36B29CE2C3F00DB43BB /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36A29CE2C3F00DB43BB /* Keys.swift */; };
 		C1BA231229E1C13F0006CAE3 /* ChatGPTDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */; };
 		C1BA231529E1C2280006CAE3 /* TripleA in Frameworks */ = {isa = PBXBuildFile; productRef = C1BA231429E1C2280006CAE3 /* TripleA */; };
+		C1BA231929E3339C0006CAE3 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231829E3339C0006CAE3 /* Chat.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		C1A7C36A29CE2C3F00DB43BB /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTDTO.swift; sourceTree = "<group>"; };
 		C1BA231729E1C8C00006CAE3 /* TripleA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TripleA; path = ../TripleA; sourceTree = "<group>"; };
+		C1BA231829E3339C0006CAE3 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -207,7 +209,6 @@
 		C1688D2B296DFA400044C922 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C16E18D7297EA4D900BD519D /* utils.entitlements */,
 				C1688D2C296DFA4B0044C922 /* font */,
 				C1BF02F8296C258B008FE367 /* Assets.xcassets */,
 			);
@@ -359,13 +360,14 @@
 		C1BF02F3296C2589008FE367 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18D7297EA4D900BD519D /* utils.entitlements */,
 				C1BF02F4296C2589008FE367 /* utilsApp.swift */,
 				C16E1810297550F500BD519D /* Common */,
 				C1BF0323296C2A65008FE367 /* Data */,
 				C1BF0329296C2C69008FE367 /* Domain */,
 				C105F099298703D2009826B3 /* Manager */,
 				C16E18D4297E9D5C00BD519D /* Scripts */,
-				C1BF0325296C2BE4008FE367 /* UI */,
+				C1BF0325296C2BE4008FE367 /* Presentation */,
 				C1688D2B296DFA400044C922 /* Resources */,
 				C1BF02FA296C258B008FE367 /* Preview Content */,
 			);
@@ -417,14 +419,14 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		C1BF0325296C2BE4008FE367 /* UI */ = {
+		C1BF0325296C2BE4008FE367 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				C16E18162975F14500BD519D /* Components */,
 				C13812C229925F950032D40B /* Modules */,
 				C16E17FE2973F32600BD519D /* Style */,
 			);
-			path = UI;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		C1BF0326296C2BF0008FE367 /* Menu */ = {
@@ -450,6 +452,7 @@
 			children = (
 				C1BF032B296C2C80008FE367 /* Menu.swift */,
 				C16E181829769D0E00BD519D /* Header.swift */,
+				C1BA231829E3339C0006CAE3 /* Chat.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */,
 				C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
+				C1BA231929E3339C0006CAE3 /* Chat.swift in Sources */,
 				C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */,
 				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
 				C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */,
