@@ -28,11 +28,12 @@
 		C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A082980450E00F0CFE4 /* DateFormatterView.swift */; };
 		C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */; };
 		C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */; };
-		C1A7C36229CCE87E00DB43BB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36129CCE87E00DB43BB /* Network.swift */; };
 		C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36429CCE8CE00DB43BB /* ChatView.swift */; };
 		C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */; };
 		C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */; };
 		C1A7C36B29CE2C3F00DB43BB /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36A29CE2C3F00DB43BB /* Keys.swift */; };
+		C1BA231229E1C13F0006CAE3 /* ChatGPTDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */; };
+		C1BA231529E1C2280006CAE3 /* TripleA in Frameworks */ = {isa = PBXBuildFile; productRef = C1BA231429E1C2280006CAE3 /* TripleA */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -89,11 +90,12 @@
 		C1746A082980450E00F0CFE4 /* DateFormatterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterView.swift; sourceTree = "<group>"; };
 		C1746A0A2980451F00F0CFE4 /* DateFormatterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterViewModel.swift; sourceTree = "<group>"; };
 		C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextFieldModifier.swift; sourceTree = "<group>"; };
-		C1A7C36129CCE87E00DB43BB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C1A7C36429CCE8CE00DB43BB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTNetworkClient.swift; sourceTree = "<group>"; };
 		C1A7C36A29CE2C3F00DB43BB /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTDTO.swift; sourceTree = "<group>"; };
+		C1BA231729E1C8C00006CAE3 /* TripleA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TripleA; path = ../TripleA; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1BA231529E1C2280006CAE3 /* TripleA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +207,7 @@
 		C1688D2B296DFA400044C922 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18D7297EA4D900BD519D /* utils.entitlements */,
 				C1688D2C296DFA4B0044C922 /* font */,
 				C1BF02F8296C258B008FE367 /* Assets.xcassets */,
 			);
@@ -304,14 +308,6 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
-		C1A7C36029CCE87300DB43BB /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				C1A7C36129CCE87E00DB43BB /* Network.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		C1A7C36329CCE89500DB43BB /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,9 +317,26 @@
 			path = ChatGPT;
 			sourceTree = "<group>";
 		};
+		C1BA231029E1C11B0006CAE3 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C1BA231629E1C8C00006CAE3 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				C1BA231729E1C8C00006CAE3 /* TripleA */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		C1BF02E8296C2589008FE367 = {
 			isa = PBXGroup;
 			children = (
+				C1BA231629E1C8C00006CAE3 /* Packages */,
 				C105F0972984631A009826B3 /* addFileToXcode.rb */,
 				C16E18CE297E988100BD519D /* addFile.rb */,
 				C1BF02F3296C2589008FE367 /* utils */,
@@ -346,15 +359,13 @@
 		C1BF02F3296C2589008FE367 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				C1A7C36029CCE87300DB43BB /* Network */,
-				C105F099298703D2009826B3 /* Manager */,
-				C16E18D7297EA4D900BD519D /* utils.entitlements */,
-				C16E18D4297E9D5C00BD519D /* Scripts */,
-				C16E1810297550F500BD519D /* Common */,
 				C1BF02F4296C2589008FE367 /* utilsApp.swift */,
-				C1BF0325296C2BE4008FE367 /* UI */,
+				C16E1810297550F500BD519D /* Common */,
 				C1BF0323296C2A65008FE367 /* Data */,
 				C1BF0329296C2C69008FE367 /* Domain */,
+				C105F099298703D2009826B3 /* Manager */,
+				C16E18D4297E9D5C00BD519D /* Scripts */,
+				C1BF0325296C2BE4008FE367 /* UI */,
 				C1688D2B296DFA400044C922 /* Resources */,
 				C1BF02FA296C258B008FE367 /* Preview Content */,
 			);
@@ -389,6 +400,7 @@
 		C1BF0323296C2A65008FE367 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C1BA231029E1C11B0006CAE3 /* DTO */,
 				C16E18CA297DD32600BD519D /* Error */,
 				C1688D28296DF0D80044C922 /* NetworkClient */,
 				C1BF0324296C2A6C008FE367 /* CoreData */,
@@ -468,6 +480,9 @@
 			dependencies = (
 			);
 			name = utils;
+			packageProductDependencies = (
+				C1BA231429E1C2280006CAE3 /* TripleA */,
+			);
 			productName = utils;
 			productReference = C1BF02F1296C2589008FE367 /* utils.app */;
 			productType = "com.apple.product-type.application";
@@ -540,6 +555,9 @@
 				Base,
 			);
 			mainGroup = C1BF02E8296C2589008FE367;
+			packageReferences = (
+				C1BA231329E1C2280006CAE3 /* XCRemoteSwiftPackageReference "TripleA" */,
+			);
 			productRefGroup = C1BF02F2296C2589008FE367 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -613,8 +631,8 @@
 				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
 				C16E18122975510500BD519D /* String.swift in Sources */,
-				C1A7C36229CCE87E00DB43BB /* Network.swift in Sources */,
 				C16E18C7297AA4F700BD519D /* JsonEditorView.swift in Sources */,
+				C1BA231229E1C13F0006CAE3 /* ChatGPTDTO.swift in Sources */,
 				C1BF0301296C258B008FE367 /* utils.xcdatamodeld in Sources */,
 				C1E0B0CD2971D7DA001AF5C3 /* JsonParserManager.swift in Sources */,
 			);
@@ -953,6 +971,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1BA231329E1C2280006CAE3 /* XCRemoteSwiftPackageReference "TripleA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fsalom/TripleA";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1BA231429E1C2280006CAE3 /* TripleA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1BA231329E1C2280006CAE3 /* XCRemoteSwiftPackageReference "TripleA" */;
+			productName = TripleA;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C1BF02FF296C258B008FE367 /* utils.xcdatamodeld */ = {
