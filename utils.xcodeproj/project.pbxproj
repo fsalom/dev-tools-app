@@ -35,6 +35,7 @@
 		C1BA231229E1C13F0006CAE3 /* ChatGPTDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */; };
 		C1BA231529E1C2280006CAE3 /* TripleA in Frameworks */ = {isa = PBXBuildFile; productRef = C1BA231429E1C2280006CAE3 /* TripleA */; };
 		C1BA231929E3339C0006CAE3 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231829E3339C0006CAE3 /* Chat.swift */; };
+		C1BA231B29E4232F0006CAE3 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231A29E4232F0006CAE3 /* SpeechRecognitionManager.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
 		C1BF02F9296C258B008FE367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BF02F8296C258B008FE367 /* Assets.xcassets */; };
@@ -98,6 +99,7 @@
 		C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTDTO.swift; sourceTree = "<group>"; };
 		C1BA231729E1C8C00006CAE3 /* TripleA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TripleA; path = ../TripleA; sourceTree = "<group>"; };
 		C1BA231829E3339C0006CAE3 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		C1BA231A29E4232F0006CAE3 /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
 		C1BF02F6296C2589008FE367 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				C105F09A29870417009826B3 /* CreateFilesManager.swift */,
+				C1BA231A29E4232F0006CAE3 /* SpeechRecognitionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */,
 				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
 				C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */,
+				C1BA231B29E4232F0006CAE3 /* SpeechRecognitionManager.swift in Sources */,
 				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
 				C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */,
@@ -801,6 +805,8 @@
 				DEVELOPMENT_TEAM = R88CDNMKLQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Necesita acceso al microfono para poder proporcionar la capacidad de dictado";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Necesita acceso al reconocimiento del discurso para poder proporcionar la capacidad de dictado";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -836,6 +842,8 @@
 				DEVELOPMENT_TEAM = R88CDNMKLQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Necesita acceso al microfono para poder proporcionar la capacidad de dictado";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Necesita acceso al reconocimiento del discurso para poder proporcionar la capacidad de dictado";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
