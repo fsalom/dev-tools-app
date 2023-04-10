@@ -6,10 +6,11 @@
 //
 
 import Foundation
-
 extension ChatView {
     @MainActor class ChatViewModel: ObservableObject {
         @Published var isLoading: Bool = false
+        @Published var isOn = false
+        @Published var isRecording = false
         @Published var newMessageText = ""
         @Published var messages: [Message] = []
         var networkClient: ChatGPTNetworkClientProtocol
@@ -56,8 +57,7 @@ extension ChatView {
             newMessage.content = newMessageText
             newMessage.contents = [MessageContent(text: newMessageText,
                                                   type: .text)]
-            messages.append(newMessage)
-            var responses = [MessageDTO]()
+            messages.append(newMessage)            
             chatGPT(with: newMessageText)
             newMessageText = ""
         }

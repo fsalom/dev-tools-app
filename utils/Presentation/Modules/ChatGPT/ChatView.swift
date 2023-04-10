@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatView: View {
     @StateObject private var viewModel = ChatViewModel()
+    @StateObject var speechRecognizer = SpeechRecognizer()
 
     var body: some View {
         VStack {
@@ -37,6 +38,19 @@ struct ChatView: View {
                     viewModel.createMessage()
                 }
                 .disabled(viewModel.newMessageText.isEmpty)
+                Button(action: {
+                    viewModel.isRecording.toggle()
+                    if viewModel.isRecording {
+                        speechRecognizer.reset()
+                        speechRecognizer.transcribe()
+                    } else {
+                        speechRecognizer.stopTranscribing()
+                        viewModel.newMessageText = speechRecognizer.transcript
+                        viewModel.createMessage()
+                    }
+                }) {
+                    Image(systemName: viewModel.isRecording ? "mic.fill" : "mic")
+                }.keyboardShortcut("x")
             }
             .padding()
         }.padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
@@ -74,12 +88,20 @@ struct ChatView: View {
                                     .textSelection(.enabled)
                             }
                         } else if content.type == .code {
-                            Text(content.text)
-                                .padding(8)
-                                .foregroundColor(.white)
-                                .background(Color.black)
-                                .textSelection(.enabled)
-                                .cornerRadius(10)
+                            VStack {
+                                Text(content.text)
+                                    .foregroundColor(.white)
+                                    .textSelection(.enabled)
+
+                                Button("Copy") {
+
+                                }
+                            }
+                            .background(Color.black)
+                            .padding(8)
+                            .cornerRadius(10)
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 20))
                         }
                     }
                 }.foregroundColor(.white)
