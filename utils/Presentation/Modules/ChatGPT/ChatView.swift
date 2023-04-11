@@ -74,7 +74,7 @@ struct ChatView: View {
                 .cornerRadius(10))
         case .success:
             return AnyView(
-                VStack {
+                VStack(alignment: .leading, spacing: 0) {
                     ForEach(message.contents.indices, id: \.self) { index in
                         let content = message.contents[index]
                         if content.type == .text {
@@ -88,20 +88,21 @@ struct ChatView: View {
                                     .textSelection(.enabled)
                             }
                         } else if content.type == .code {
-                            VStack {
-                                Text(content.text)
-                                    .foregroundColor(.white)
-                                    .textSelection(.enabled)
+                            ZStack(alignment: .leading) {
+                                Color.gray
+                                    .ignoresSafeArea()
 
-                                Button("Copy") {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color.white)
+                                    .padding()
 
-                                }
+                                VStack(spacing: 10, content: {
+                                    Text(content.text)
+                                        .foregroundColor(Color.black)
+                                        .padding()
+
+                                }).padding()
                             }
-                            .background(Color.black)
-                            .padding(8)
-                            .cornerRadius(10)
-                            .clipShape(
-                                RoundedRectangle(cornerRadius: 20))
                         }
                     }
                 }.foregroundColor(.white)
