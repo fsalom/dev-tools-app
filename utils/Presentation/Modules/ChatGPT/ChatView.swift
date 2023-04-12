@@ -10,9 +10,24 @@ import SwiftUI
 struct ChatView: View {
     @StateObject private var viewModel = ChatViewModel()
     @StateObject var speechRecognizer = SpeechRecognizer()
-
+    @State var filename = "Filename"
+    @State var showFileChooser = false
     var body: some View {
         VStack {
+            Text("Añadir fichero de reespaldo para la conversación")
+            HStack {
+                Text(filename)
+                Button("select File")
+                {
+                    let panel = NSOpenPanel()
+                    panel.allowsMultipleSelection = false
+                    panel.canChooseDirectories = false
+                    if panel.runModal() == .OK {
+                        self.filename = panel.url?.lastPathComponent ?? "<none>"
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
             ScrollView {
                 ScrollViewReader { value in
                     ForEach(viewModel.messages) { message in
