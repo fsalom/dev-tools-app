@@ -72,6 +72,14 @@ extension ChatView {
             }
             return responses
         }
+
+        func getFileContent(from url: URL) throws -> String {
+            let data = try Data(contentsOf: url)
+            let content = String(decoding: data, as: UTF8.self)
+            return content
+        }
+
+
     }
 }
 
