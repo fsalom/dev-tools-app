@@ -78,8 +78,6 @@ extension ChatView {
             let content = String(decoding: data, as: UTF8.self)
             return content
         }
-
-
     }
 }
 
