@@ -1,8 +1,8 @@
 //
-//  ChatGPTDTO.swift
-//  utils
+//  ChatGPT.swift
+//  chatgpt
 //
-//  Created by Fernando Salom Carratala on 8/4/23.
+//  Created by Fernando Salom Carratala on 11/5/23.
 //
 
 import Foundation
@@ -15,11 +15,6 @@ struct Model: Codable {
 struct MessageDTO: Codable {
     var role: String
     var content: String
-
-    init(from message: Message) {
-        role = message.role
-        content = message.content
-    }
 }
 
 struct ChoiceDTO: Codable {
