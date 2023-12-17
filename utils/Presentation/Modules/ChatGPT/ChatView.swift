@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ChatView: View {
-    @StateObject private var viewModel = ChatViewModel()
+    @ObservedObject private var viewModel = ChatViewModel()
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State var filename = "Filename"
     @State var showFileChooser = false
+
     var body: some View {
         VStack {
             Text("Añadir fichero de reespaldo para la conversación")
@@ -126,6 +127,21 @@ struct ChatView: View {
                     .id(message.id)
                     .padding(10))
 
+        case .file:
+            return AnyView(NavigationLink {
+                ChatFilePreviewer(message: message)
+            } label: {
+                ChatMessageFileView(messageItem: message).id(message.id)
+            })
+        }
+    }
+}
+
+struct ChatFilePreviewer: View {
+    let message: Message
+    var body: some View {
+        ScrollView {
+            Text(message.content ?? "No hay contenido").padding(20)
         }
     }
 }

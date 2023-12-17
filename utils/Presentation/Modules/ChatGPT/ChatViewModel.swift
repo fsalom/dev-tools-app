@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import TripleA
+
 extension ChatView {
     @MainActor class ChatViewModel: ObservableObject {
         @Published var isLoading: Bool = false
@@ -13,19 +15,24 @@ extension ChatView {
         @Published var isRecording = false
         @Published var newMessageText = ""
         @Published var messages: [Message] = []
-        var networkClient: ChatGPTNetworkClientProtocol
+        var gptUseCases: GPTUseCasesProtocol
 
         init() {
-            networkClient = ChatGPTNetworkClient()
+            gptUseCases = GPTUseCases(
+                repository: GPTRepository(
+                    datasource: GPTDataSource(
+                        network: Network(baseURL: "https://api.openai.com/v1/chat/", format: .full)
+                    )
+                )
+            )
         }
 
         func chatGPT(with prompt: String) {
             Task {
-                let message = Message(isSentByUser: false,
-                                      state: .loading)
+                let message = Message.loading
                 do {
                     messages.append(message)
-                    guard let chat = try await networkClient.send(this: prompt, and: getChatHistory()) else {
+                    guard let chat = try await gptUseCases.send(this: prompt, and: messages) else {
                         return
                     }
                     let index = messages.count - 1
@@ -33,7 +40,7 @@ extension ChatView {
                     messages[index].content = chat.content
                     changeState(of: message.id,
                                 with: .success,
-                                and: chat.content)
+                                and: chat.content ?? "")
                 } catch {
                     changeState(of: message.id,
                                 with: .error,
@@ -48,11 +55,11 @@ extension ChatView {
                 messages[row].state = state
                 messages[row].evaluate(this: message)
             }
+            objectWillChange.send()
         }
 
         func createMessage() {
-            var newMessage = Message(isSentByUser: true,
-                                     state: .success)
+            let newMessage = Message.new
             newMessage.role = "user"
             newMessage.content = newMessageText
             newMessage.contents = [MessageContent(text: newMessageText,
@@ -62,16 +69,6 @@ extension ChatView {
             newMessageText = ""
         }
 
-        func getChatHistory() -> [MessageDTO] {
-            var responses = [MessageDTO]()
-            for message in messages {
-                if !message.role.isEmpty {
-                    responses.append(MessageDTO(from: message))
-                }
-                continue
-            }
-            return responses
-        }
 
         func getFileContent(from url: URL) throws -> String {
             let data = try Data(contentsOf: url)
