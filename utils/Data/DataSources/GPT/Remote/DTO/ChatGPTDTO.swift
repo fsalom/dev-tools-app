@@ -12,11 +12,6 @@ struct Model: Codable {
     var messages: [MessageDTO]
 }
 
-struct MessageDTO: Codable {
-    var role: String
-    var content: String
-}
-
 struct ChoiceDTO: Codable {
     var message: MessageDTO
 }

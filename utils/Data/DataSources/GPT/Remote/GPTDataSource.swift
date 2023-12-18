@@ -21,14 +21,11 @@ enum GPTError: Error {
 
 class GPTDataSource: GPTDataSourceProtocol {
     var network: Network
+    var apiKey: String
 
-    init(network: Network) {
+    init(network: Network, apiKey: String) {
         self.network = network
-    }
-
-    enum ChatError: Error {
-        case invalidURL
-        case fail
+        self.apiKey = apiKey
     }
 
     func send(this prompt: String, and context: [MessageDTO]) async throws -> MessageDTO? {
@@ -37,7 +34,7 @@ class GPTDataSource: GPTDataSourceProtocol {
             let parameters = Model(model: "gpt-3.5-turbo", messages: context)
             let headers = [
                 "Content-Type": "application/json",
-                "Authorization": "Bearer \(openaiAPIKey)"
+                "Authorization": "Bearer \(apiKey)"
             ]
             let endpoint = Endpoint(path: "completions",
                                     httpMethod: .post,
