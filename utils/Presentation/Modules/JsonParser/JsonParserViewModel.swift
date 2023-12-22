@@ -27,7 +27,7 @@ extension JsonParserView {
                     let (_, data) = try await networkClient.getJSONStringAndData(for: url)
                     do {
                         let resultJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
-                        let manager = JSONManager()
+                        let manager = JsonManager()
                         manager.parseJson(from: resultJson as Any)
                         self.element = manager.root
                     } catch {

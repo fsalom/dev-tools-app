@@ -7,10 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10302642B30D4E8005E8C54 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10302632B30D4E8005E8C54 /* Container.swift */; };
+		C10302662B30D590005E8C54 /* JsonParserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10302652B30D590005E8C54 /* JsonParserUseCase.swift */; };
+		C10302682B30D59E005E8C54 /* JsonParserUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10302672B30D59E005E8C54 /* JsonParserUseCaseProtocol.swift */; };
+		C103026A2B30D666005E8C54 /* JsonParserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10302692B30D666005E8C54 /* JsonParserRepositoryProtocol.swift */; };
+		C103026D2B30D6BF005E8C54 /* JsonParserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103026C2B30D6BF005E8C54 /* JsonParserRepository.swift */; };
 		C105F08929832A27009826B3 /* FirebaseTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105F08829832A27009826B3 /* FirebaseTesterView.swift */; };
 		C105F09429846146009826B3 /* addFile.rb in Resources */ = {isa = PBXBuildFile; fileRef = C16E18CE297E988100BD519D /* addFile.rb */; };
 		C105F0982984631A009826B3 /* addFileToXcode.rb in Resources */ = {isa = PBXBuildFile; fileRef = C105F0972984631A009826B3 /* addFileToXcode.rb */; };
 		C105F09B29870417009826B3 /* CreateFilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105F09A29870417009826B3 /* CreateFilesManager.swift */; };
+		C117765C2B2C7427002F8992 /* ErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776592B2C7427002F8992 /* ErrorDTO.swift */; };
+		C117765D2B2C7427002F8992 /* ChatGPTDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117765A2B2C7427002F8992 /* ChatGPTDTO.swift */; };
+		C117765E2B2C7427002F8992 /* GPTDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117765B2B2C7427002F8992 /* GPTDataSource.swift */; };
+		C11776612B2C747D002F8992 /* RemoteGPTProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776602B2C747D002F8992 /* RemoteGPTProtocol.swift */; };
+		C11776652B2C74CB002F8992 /* GPTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776642B2C74CB002F8992 /* GPTRepository.swift */; };
+		C11776682B2C74E3002F8992 /* GPTRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776672B2C74E3002F8992 /* GPTRepositoryProtocol.swift */; };
+		C117766A2B2C750A002F8992 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776692B2C750A002F8992 /* Message.swift */; };
+		C117766D2B2C75DD002F8992 /* GPTUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117766C2B2C75DD002F8992 /* GPTUseCases.swift */; };
+		C11776702B2C7616002F8992 /* GPTUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117766F2B2C7616002F8992 /* GPTUseCasesProtocol.swift */; };
+		C11776732B2C79DC002F8992 /* ChatMessageFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776722B2C79DC002F8992 /* ChatMessageFileView.swift */; };
+		C11776772B303AAA002F8992 /* JsonParserDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776762B303AAA002F8992 /* JsonParserDataSourceProtocol.swift */; };
+		C11776792B303AC2002F8992 /* JsonManagerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11776782B303AC2002F8992 /* JsonManagerDataSource.swift */; };
+		C117767C2B303B20002F8992 /* MessageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C117767B2B303B20002F8992 /* MessageDTO.swift */; };
 		C13812C6299272750032D40B /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13812C5299272750032D40B /* TextEditor.swift */; };
 		C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */; };
 		C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688D29296DF1000044C922 /* NetworkClientJSON.swift */; };
@@ -30,11 +48,8 @@
 		C1746A0E29805C1000F0CFE4 /* RoundTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */; };
 		C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36429CCE8CE00DB43BB /* ChatView.swift */; };
 		C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */; };
-		C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */; };
 		C1A7C36B29CE2C3F00DB43BB /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7C36A29CE2C3F00DB43BB /* Keys.swift */; };
-		C1BA231229E1C13F0006CAE3 /* ChatGPTDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */; };
 		C1BA231529E1C2280006CAE3 /* TripleA in Frameworks */ = {isa = PBXBuildFile; productRef = C1BA231429E1C2280006CAE3 /* TripleA */; };
-		C1BA231929E3339C0006CAE3 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231829E3339C0006CAE3 /* Chat.swift */; };
 		C1BA231B29E4232F0006CAE3 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA231A29E4232F0006CAE3 /* SpeechRecognitionManager.swift */; };
 		C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F4296C2589008FE367 /* utilsApp.swift */; };
 		C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF02F6296C2589008FE367 /* MenuView.swift */; };
@@ -70,9 +85,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C10302632B30D4E8005E8C54 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		C10302652B30D590005E8C54 /* JsonParserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserUseCase.swift; sourceTree = "<group>"; };
+		C10302672B30D59E005E8C54 /* JsonParserUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserUseCaseProtocol.swift; sourceTree = "<group>"; };
+		C10302692B30D666005E8C54 /* JsonParserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		C103026C2B30D6BF005E8C54 /* JsonParserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserRepository.swift; sourceTree = "<group>"; };
 		C105F08829832A27009826B3 /* FirebaseTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTesterView.swift; sourceTree = "<group>"; };
 		C105F0972984631A009826B3 /* addFileToXcode.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = addFileToXcode.rb; sourceTree = "<group>"; };
 		C105F09A29870417009826B3 /* CreateFilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFilesManager.swift; sourceTree = "<group>"; };
+		C11776592B2C7427002F8992 /* ErrorDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDTO.swift; sourceTree = "<group>"; };
+		C117765A2B2C7427002F8992 /* ChatGPTDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatGPTDTO.swift; sourceTree = "<group>"; };
+		C117765B2B2C7427002F8992 /* GPTDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPTDataSource.swift; sourceTree = "<group>"; };
+		C11776602B2C747D002F8992 /* RemoteGPTProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGPTProtocol.swift; sourceTree = "<group>"; };
+		C11776642B2C74CB002F8992 /* GPTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRepository.swift; sourceTree = "<group>"; };
+		C11776672B2C74E3002F8992 /* GPTRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRepositoryProtocol.swift; sourceTree = "<group>"; };
+		C11776692B2C750A002F8992 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C117766C2B2C75DD002F8992 /* GPTUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUseCases.swift; sourceTree = "<group>"; };
+		C117766F2B2C7616002F8992 /* GPTUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUseCasesProtocol.swift; sourceTree = "<group>"; };
+		C11776722B2C79DC002F8992 /* ChatMessageFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageFileView.swift; sourceTree = "<group>"; };
+		C11776762B303AAA002F8992 /* JsonParserDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserDataSourceProtocol.swift; sourceTree = "<group>"; };
+		C11776782B303AC2002F8992 /* JsonManagerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManagerDataSource.swift; sourceTree = "<group>"; };
+		C117767B2B303B20002F8992 /* MessageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDTO.swift; sourceTree = "<group>"; };
 		C13812C5299272750032D40B /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
 		C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserViewModel.swift; sourceTree = "<group>"; };
 		C1688D29296DF1000044C922 /* NetworkClientJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientJSON.swift; sourceTree = "<group>"; };
@@ -94,11 +127,8 @@
 		C1746A0D29805C1000F0CFE4 /* RoundTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextFieldModifier.swift; sourceTree = "<group>"; };
 		C1A7C36429CCE8CE00DB43BB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTNetworkClient.swift; sourceTree = "<group>"; };
 		C1A7C36A29CE2C3F00DB43BB /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTDTO.swift; sourceTree = "<group>"; };
 		C1BA231729E1C8C00006CAE3 /* TripleA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TripleA; path = ../TripleA; sourceTree = "<group>"; };
-		C1BA231829E3339C0006CAE3 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		C1BA231A29E4232F0006CAE3 /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		C1BF02F1296C2589008FE367 /* utils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = utils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BF02F4296C2589008FE367 /* utilsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilsApp.swift; sourceTree = "<group>"; };
@@ -145,6 +175,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C10302602B30CFD4005E8C54 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C1E0B0CC2971D7DA001AF5C3 /* JsonParserManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C10302612B30D112005E8C54 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				C10302652B30D590005E8C54 /* JsonParserUseCase.swift */,
+				C10302672B30D59E005E8C54 /* JsonParserUseCaseProtocol.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		C10302622B30D4BF005E8C54 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF0324296C2A6C008FE367 /* CoreData */,
+				C10302632B30D4E8005E8C54 /* Container.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		C103026B2B30D6AB005E8C54 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				C103026C2B30D6BF005E8C54 /* JsonParserRepository.swift */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
 		C105F08729832A18009826B3 /* FirebaseTester */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +224,120 @@
 				C1BA231A29E4232F0006CAE3 /* SpeechRecognitionManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		C11776562B2C7427002F8992 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				C11776742B303A76002F8992 /* JsonParser */,
+				C11776572B2C7427002F8992 /* GPT */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		C11776572B2C7427002F8992 /* GPT */ = {
+			isa = PBXGroup;
+			children = (
+				C117767A2B303B13002F8992 /* DTO */,
+				C117765F2B2C7461002F8992 /* Remote */,
+				C11776602B2C747D002F8992 /* RemoteGPTProtocol.swift */,
+			);
+			path = GPT;
+			sourceTree = "<group>";
+		};
+		C11776582B2C7427002F8992 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C11776592B2C7427002F8992 /* ErrorDTO.swift */,
+				C117765A2B2C7427002F8992 /* ChatGPTDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C117765F2B2C7461002F8992 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				C11776582B2C7427002F8992 /* DTO */,
+				C117765B2B2C7427002F8992 /* GPTDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		C11776622B2C74B4002F8992 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C103026B2B30D6AB005E8C54 /* JsonParser */,
+				C11776632B2C74BC002F8992 /* GPT */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C11776632B2C74BC002F8992 /* GPT */ = {
+			isa = PBXGroup;
+			children = (
+				C11776642B2C74CB002F8992 /* GPTRepository.swift */,
+			);
+			path = GPT;
+			sourceTree = "<group>";
+		};
+		C11776662B2C74D0002F8992 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C11776672B2C74E3002F8992 /* GPTRepositoryProtocol.swift */,
+				C10302692B30D666005E8C54 /* JsonParserRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C117766B2B2C75CE002F8992 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C10302612B30D112005E8C54 /* Json */,
+				C117766E2B2C75FC002F8992 /* GPT */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		C117766E2B2C75FC002F8992 /* GPT */ = {
+			isa = PBXGroup;
+			children = (
+				C117766C2B2C75DD002F8992 /* GPTUseCases.swift */,
+				C117766F2B2C7616002F8992 /* GPTUseCasesProtocol.swift */,
+			);
+			path = GPT;
+			sourceTree = "<group>";
+		};
+		C11776712B2C79C9002F8992 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				C11776722B2C79DC002F8992 /* ChatMessageFileView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		C11776742B303A76002F8992 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				C11776752B303A84002F8992 /* JsonManager */,
+				C11776762B303AAA002F8992 /* JsonParserDataSourceProtocol.swift */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		C11776752B303A84002F8992 /* JsonManager */ = {
+			isa = PBXGroup;
+			children = (
+				C11776782B303AC2002F8992 /* JsonManagerDataSource.swift */,
+			);
+			path = JsonManager;
+			sourceTree = "<group>";
+		};
+		C117767A2B303B13002F8992 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C117767B2B303B20002F8992 /* MessageDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		C13812C229925F950032D40B /* Modules */ = {
@@ -204,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				C1688D29296DF1000044C922 /* NetworkClientJSON.swift */,
-				C1A7C36829CDB2DC00DB43BB /* ChatGPTNetworkClient.swift */,
 			);
 			path = NetworkClient;
 			sourceTree = "<group>";
@@ -315,18 +492,11 @@
 		C1A7C36329CCE89500DB43BB /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
+				C11776712B2C79C9002F8992 /* Component */,
 				C1A7C36429CCE8CE00DB43BB /* ChatView.swift */,
 				C1A7C36629CDA83E00DB43BB /* ChatViewModel.swift */,
 			);
 			path = ChatGPT;
-			sourceTree = "<group>";
-		};
-		C1BA231029E1C11B0006CAE3 /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-				C1BA231129E1C13F0006CAE3 /* ChatGPTDTO.swift */,
-			);
-			path = DTO;
 			sourceTree = "<group>";
 		};
 		C1BA231629E1C8C00006CAE3 /* Packages */ = {
@@ -367,6 +537,7 @@
 				C1BF02F4296C2589008FE367 /* utilsApp.swift */,
 				C16E1810297550F500BD519D /* Common */,
 				C1BF0323296C2A65008FE367 /* Data */,
+				C10302622B30D4BF005E8C54 /* DI */,
 				C1BF0329296C2C69008FE367 /* Domain */,
 				C105F099298703D2009826B3 /* Manager */,
 				C16E18D4297E9D5C00BD519D /* Scripts */,
@@ -405,10 +576,9 @@
 		C1BF0323296C2A65008FE367 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C1BA231029E1C11B0006CAE3 /* DTO */,
-				C16E18CA297DD32600BD519D /* Error */,
-				C1688D28296DF0D80044C922 /* NetworkClient */,
-				C1BF0324296C2A6C008FE367 /* CoreData */,
+				C10302602B30CFD4005E8C54 /* Manager */,
+				C11776622B2C74B4002F8992 /* Repositories */,
+				C11776562B2C7427002F8992 /* DataSources */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -445,6 +615,8 @@
 		C1BF0329296C2C69008FE367 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C117766B2B2C75CE002F8992 /* UseCases */,
+				C11776662B2C74D0002F8992 /* Repositories */,
 				C1BF032A296C2C71008FE367 /* Entity */,
 			);
 			path = Domain;
@@ -453,9 +625,10 @@
 		C1BF032A296C2C71008FE367 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				C16E18CA297DD32600BD519D /* Error */,
 				C1BF032B296C2C80008FE367 /* Menu.swift */,
 				C16E181829769D0E00BD519D /* Header.swift */,
-				C1BA231829E3339C0006CAE3 /* Chat.swift */,
+				C11776692B2C750A002F8992 /* Message.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -463,9 +636,9 @@
 		C1BF032F296C5654008FE367 /* JsonParser */ = {
 			isa = PBXGroup;
 			children = (
+				C1688D28296DF0D80044C922 /* NetworkClient */,
 				C1BF0330296C566E008FE367 /* JsonParserView.swift */,
 				C1688D26296DF04D0044C922 /* JsonParserViewModel.swift */,
-				C1E0B0CC2971D7DA001AF5C3 /* JsonParserManager.swift */,
 			);
 			path = JsonParser;
 			sourceTree = "<group>";
@@ -612,23 +785,36 @@
 			files = (
 				C1BF032C296C2C80008FE367 /* Menu.swift in Sources */,
 				C1688D27296DF04D0044C922 /* JsonParserViewModel.swift in Sources */,
+				C117765C2B2C7427002F8992 /* ErrorDTO.swift in Sources */,
+				C11776612B2C747D002F8992 /* RemoteGPTProtocol.swift in Sources */,
 				C16E18D1297E9B3600BD519D /* ExecuteView.swift in Sources */,
-				C1A7C36929CDB2DC00DB43BB /* ChatGPTNetworkClient.swift in Sources */,
 				C1BF0331296C566E008FE367 /* JsonParserView.swift in Sources */,
-				C1BA231929E3339C0006CAE3 /* Chat.swift in Sources */,
 				C1A7C36529CCE8CE00DB43BB /* ChatView.swift in Sources */,
+				C117766A2B2C750A002F8992 /* Message.swift in Sources */,
+				C117765E2B2C7427002F8992 /* GPTDataSource.swift in Sources */,
+				C10302642B30D4E8005E8C54 /* Container.swift in Sources */,
 				C16E18D3297E9B4600BD519D /* ExecuteViewModel.swift in Sources */,
+				C11776682B2C74E3002F8992 /* GPTRepositoryProtocol.swift in Sources */,
+				C103026A2B30D666005E8C54 /* JsonParserRepositoryProtocol.swift in Sources */,
 				C1746A092980450E00F0CFE4 /* DateFormatterView.swift in Sources */,
+				C11776792B303AC2002F8992 /* JsonManagerDataSource.swift in Sources */,
+				C11776702B2C7616002F8992 /* GPTUseCasesProtocol.swift in Sources */,
+				C11776772B303AAA002F8992 /* JsonParserDataSourceProtocol.swift in Sources */,
 				C1BA231B29E4232F0006CAE3 /* SpeechRecognitionManager.swift in Sources */,
+				C11776652B2C74CB002F8992 /* GPTRepository.swift in Sources */,
 				C16E18CC297DD34200BD519D /* CommonErrors.swift in Sources */,
+				C10302662B30D590005E8C54 /* JsonParserUseCase.swift in Sources */,
 				C1BF02FE296C258B008FE367 /* Persistence.swift in Sources */,
 				C1A7C36729CDA83E00DB43BB /* ChatViewModel.swift in Sources */,
+				C117765D2B2C7427002F8992 /* ChatGPTDTO.swift in Sources */,
 				C1BF02F7296C2589008FE367 /* MenuView.swift in Sources */,
 				C1688D2A296DF1000044C922 /* NetworkClientJSON.swift in Sources */,
 				C1A7C36B29CE2C3F00DB43BB /* Keys.swift in Sources */,
+				C117767C2B303B20002F8992 /* MessageDTO.swift in Sources */,
 				C16E18152975643000BD519D /* FloatingNoticeView.swift in Sources */,
 				C16E18C9297AA53200BD519D /* JsonEditorViewModel.swift in Sources */,
 				C1BF02F5296C2589008FE367 /* utilsApp.swift in Sources */,
+				C10302682B30D59E005E8C54 /* JsonParserUseCaseProtocol.swift in Sources */,
 				C105F09B29870417009826B3 /* CreateFilesManager.swift in Sources */,
 				C16E181929769D0E00BD519D /* Header.swift in Sources */,
 				C13812C6299272750032D40B /* TextEditor.swift in Sources */,
@@ -639,10 +825,12 @@
 				C1746A0B2980451F00F0CFE4 /* DateFormatterViewModel.swift in Sources */,
 				C1BF032E296C2D95008FE367 /* MenuListRowView.swift in Sources */,
 				C16E18122975510500BD519D /* String.swift in Sources */,
+				C117766D2B2C75DD002F8992 /* GPTUseCases.swift in Sources */,
 				C16E18C7297AA4F700BD519D /* JsonEditorView.swift in Sources */,
-				C1BA231229E1C13F0006CAE3 /* ChatGPTDTO.swift in Sources */,
+				C103026D2B30D6BF005E8C54 /* JsonParserRepository.swift in Sources */,
 				C1BF0301296C258B008FE367 /* utils.xcdatamodeld in Sources */,
 				C1E0B0CD2971D7DA001AF5C3 /* JsonParserManager.swift in Sources */,
+				C11776732B2C79DC002F8992 /* ChatMessageFileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

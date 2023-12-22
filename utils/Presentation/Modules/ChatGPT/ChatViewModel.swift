@@ -21,7 +21,8 @@ extension ChatView {
             gptUseCases = GPTUseCases(
                 repository: GPTRepository(
                     datasource: GPTDataSource(
-                        network: Network(baseURL: "https://api.openai.com/v1/chat/", format: .full)
+                        network: Network(baseURL: "https://api.openai.com/v1/chat/", format: .full),
+                        apiKey: Keys.chatGPT.value
                     )
                 )
             )

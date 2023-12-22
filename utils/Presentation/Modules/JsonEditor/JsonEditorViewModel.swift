@@ -13,7 +13,7 @@ extension JsonEditorView {
         @Published var text: AttributedString = ""
         @Published var element: Element?
         var networkClient: NetworkClientJSONProtocol
-        var manager: JSONManager?
+        var manager: JsonManager?
 
         enum EditorError: Error {
             case notParsedYet
@@ -52,7 +52,7 @@ extension JsonEditorView {
             if let data = JSON.data(using: .utf8) {
                 do {
                     let json = try dataToJSON(with: data)
-                    manager = JSONManager()
+                    manager = JsonManager()
                     guard let manager else { throw EditorError.notParsedYet }
                     manager.parseJson(from: json as Any)
                     self.element = manager.root                    
