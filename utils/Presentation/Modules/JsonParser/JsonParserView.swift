@@ -140,6 +140,44 @@ struct JsonParserView: View {
                     if let content = element.content {
                         List(content, children: \.content) { row in
                             HStack {
+
+                                let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"
+                                Text(row.name + " \(type)").fontWeight(.heavy)
+                                Spacer()
+                                if let value = row.value {
+                                    if row.type == .string {
+                                        if let urlString = value as? String, urlString.canOpenUrl() {
+                                            Link(urlString, destination: URL(string: urlString)!)
+                                                .onTapGesture {
+                                                    openURL(URL(string: urlString)!)
+                                                }
+                                                .foregroundColor(.blue)
+                                            Image(systemName: "doc.on.doc.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 20, height: 20.0)
+                                                .onTapGesture {
+                                                    self.presentingModal = true
+                                                    #if os(iOS)
+                                                    UIPasteboard.general.string = urlString
+                                                    #endif
+                                                }
+                                        } else {
+                                            Text("\(value)").foregroundColor(.orange)
+                                        }
+                                    } else {
+                                        Text("\(value)").foregroundColor(.orange)
+                                    }
+                                }
+                            }
+                        }.listStyle(.plain)
+                    }
+                }
+                if let element = viewModel.element {
+                    if let content = element.content {
+                        List(content) { row in
+                            HStack {
+
                                 let type = row.type != .array ? "(\(row.type))" : "[\(row.content?.count ?? 0)]"
                                 Text(row.name + " \(type)").fontWeight(.heavy)
                                 Spacer()
@@ -177,11 +215,16 @@ struct JsonParserView: View {
                     minHeight: 0,
                     maxHeight: .infinity,
                     alignment: .topLeading)
+            }.frame(minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    maxHeight: .infinity,
+                    alignment: .topLeading)
             .navigationTitle("Parseador de JSON")
             if presentingModal {
                 FloatingNotice(showingNotice: $presentingModal)
             }
-        }
+
     }
 }
 
